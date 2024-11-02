@@ -1,0 +1,70 @@
+footer {
+  width: 100%;
+  margin-top: 50px;
+  padding-top: 10px;
+  display: flex;
+  background-color: #007bff;
+}
+footer .copy-right {
+  width: calc(100% / 3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer .copy-right p {
+  color: white;
+}
+footer .contact {
+  width: calc(100% / 3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+footer .opening-hours {
+  width: calc(100% / 3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+footer .opening-hours h2 {
+  color: white;
+  margin-bottom: 10px;
+}
+footer .opening-hours .opening-hourse-container {
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 4px;
+  background-color: #bac4cf5e;
+  padding: 10px;
+}
+footer .opening-hours .opening-hourse-container ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+footer .opening-hours .opening-hourse-container ul li {
+  margin-bottom: 5px;
+  color: white;
+}
+footer .contact p {
+  text-transform: capitalize;
+  font-weight: bold;
+  color: white;
+}
+footer .contact .footer-links {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+footer .contact .footer-links a svg {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  transition: 0.5s;
+}
+footer .contact .footer-links a svg:hover {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+  transform: scale(1.1);
+}

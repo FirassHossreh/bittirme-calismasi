@@ -1,0 +1,58 @@
+.box {
+  background-color: white;
+  border-radius: 20px;
+  padding: 30px 20px;
+  flex: 1 1 30%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  min-width: 280px;
+ 
+
+}
+
+.box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.box::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  top: 20px;
+  left: 20px;
+}
+
+.box.mission::before {
+  background-color: red;
+}
+
+.box.vision::before {
+  background-color: teal;
+}
+
+.box.goals::before {
+  background-color: orange;
+}
+
+.icon {
+  font-size: 50px;
+  margin-bottom: 15px;
+}
+
+.vision-mission-whyUs h2 {
+  color: #007bff;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.vision-mission-whyUs p {
+  color: #333333;
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: justify;
+}
