@@ -1,6 +1,6 @@
 import NewsAndAnnouncements from "../../components/news-and-announcements/NewsAndAnnouncements";
 import Slider from "../../components/slider/Slider";
-import VisionMissionWhyUs from "../../components/vision-mission-whyUs/VisionMissionWhyUs";
+import VisionMissionTarget from "../../components/vision-mission-target/VisionMissionTarget";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBullseye,
@@ -25,8 +25,8 @@ export default function HomePage() {
             faaliyetler ve modern materyallerle geleceğe hazırlarken, sağlıklı
             beslenme ve aktif yaşamı teşvik ederek beden ve zihin sağlıklarını
             güçlendirmeyi önemsiyoruz.`;
-  const goalTitle = "hedef";
-  const goalDescription = `Fanasan Anaokulu'nun hedefi, çocukların öğrenme sürecine aktif katılımını 
+  const targetTitle = "hedef";
+  const targetDescription = `Fanasan Anaokulu'nun hedefi, çocukların öğrenme sürecine aktif katılımını 
   sağlayarak bireysel yeteneklerini en üst düzeyde geliştirmek ve onları özgüvenli, yaratıcı bireyler 
   olarak geleceğe hazırlamaktır. Sosyal, duygusal ve akademik becerilerini destekleyerek, sağlıklı ve
    dengeli bir gelişim ortamı sunmayı amaçlıyoruz.`;
@@ -34,8 +34,8 @@ export default function HomePage() {
   return (
     <>
       <Slider />
-      <div className="vision-mission-whyUs">
-        <VisionMissionWhyUs
+      <div className="vision-mission-target">
+        <VisionMissionTarget
           title={visionTitle}
           description={visionDescription}
           classTitle={"vision"}
@@ -45,25 +45,25 @@ export default function HomePage() {
             size="3x"
             style={{ color: "teal" }}
           />
-        </VisionMissionWhyUs>
-        <VisionMissionWhyUs
+        </VisionMissionTarget>
+        <VisionMissionTarget
           title={missionTitle}
           description={missionDescription}
           classTitle={"mission"}
         >
           <FontAwesomeIcon icon={faRocket} size="3x" style={{ color: "red" }} />
-        </VisionMissionWhyUs>
-        <VisionMissionWhyUs
-          title={goalTitle}
-          description={goalDescription}
-          classTitle={"goals"}
+        </VisionMissionTarget>
+        <VisionMissionTarget
+          title={targetTitle}
+          description={targetDescription}
+          classTitle={"target"}
         >
           <FontAwesomeIcon
             icon={faBullseye}
             size="3x"
             style={{ color: "orange" }}
           />
-        </VisionMissionWhyUs>
+        </VisionMissionTarget>
       </div>
       <NewsAndAnnouncements />
     </>

@@ -8,8 +8,6 @@
   position: relative;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
   min-width: 280px;
- 
-
 }
 
 .box:hover {
@@ -35,7 +33,7 @@
   background-color: teal;
 }
 
-.box.goals::before {
+.box.target::before {
   background-color: orange;
 }
 
@@ -44,13 +42,13 @@
   margin-bottom: 15px;
 }
 
-.vision-mission-whyUs h2 {
+.vision-mission-target h2 {
   color: #007bff;
   font-size: 24px;
   margin-bottom: 15px;
 }
 
-.vision-mission-whyUs p {
+.vision-mission-target p {
   color: #333333;
   font-size: 16px;
   line-height: 1.8;

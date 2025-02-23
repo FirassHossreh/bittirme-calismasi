@@ -1,4 +1,4 @@
-import "./visionMissionWhyUs.css";
+import "./visionMissionTarget.css";
 
 export default function VisionMissionWhyUs({
   title,
