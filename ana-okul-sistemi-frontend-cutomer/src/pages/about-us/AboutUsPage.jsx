@@ -1,5 +1,6 @@
 import photoOfKindergarten from "../../assets/photo-of-kindergarten/Screenshot 2025-02-22 202947.png";
-import "./aboutPage.css";
+import EmployeeCard from "../../Modals/employee-box/EmployeeBox";
+import "./aboutUsPage.css";
 
 export default function AboutPage() {
   return (
@@ -22,6 +23,27 @@ export default function AboutPage() {
       <div className="about-container">
         <div className="about-img">
           <img src={photoOfKindergarten} alt="hata" />
+        </div>
+      </div>
+      <div className="about-container">
+        <h1>idarecilerimiz</h1>
+        <div className="container-for-employees">
+          <EmployeeCard
+            name="firass"
+            position={"hossreh"}
+            image={photoOfKindergarten}
+            email={"firass.hus@gmail.com"}
+            gender={"male"}
+          />
+          <EmployeeCard />
+          <EmployeeCard />
+          <EmployeeCard />
+          <EmployeeCard />
+          <EmployeeCard />
+          <EmployeeCard />
+          <EmployeeCard />
+          <EmployeeCard />
+          <EmployeeCard />
         </div>
       </div>
     </>

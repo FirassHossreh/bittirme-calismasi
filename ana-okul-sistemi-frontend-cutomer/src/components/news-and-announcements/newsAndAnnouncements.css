@@ -11,6 +11,7 @@
   text-align: center;
   top: 28px;
   left: 50%;
+  color: #007bff;
   transform: translateX(-50%);
   position: absolute;
   background-color: white;

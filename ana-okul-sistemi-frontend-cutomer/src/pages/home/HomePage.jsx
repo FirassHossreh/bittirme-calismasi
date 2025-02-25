@@ -1,14 +1,39 @@
 import NewsAndAnnouncements from "../../components/news-and-announcements/NewsAndAnnouncements";
 import Slider from "../../components/slider/Slider";
 import VisionMissionTarget from "../../components/vision-mission-target/VisionMissionTarget";
+import FullScreenModal from "../../Modals/full-screen-modal/FullScreenModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBullseye,
   faLightbulb,
   faRocket,
+  faHeart,
+  faStar,
+  faSun,
+  faUsers,
+  faBookOpen,
+  faPalette,
 } from "@fortawesome/free-solid-svg-icons";
 import "./homePage.css";
 
+const iconsOfOurCoreValues = [faHeart, faStar, faSun];
+const titlesOfOurCoreValues = ["Nurturing Care", "Excellence", "Growth"];
+const subTitlesOfOurCoreValues = [
+  `Creating a loving and supportive environment where every childfeels safe and valued`,
+  `Committed to providing the highest quality early childhood education`,
+  `Fostering development through play-based learning and exploration`,
+];
+const iconsOfWhyChooseUs = [faUsers, faBookOpen, faPalette];
+const titlesOfWhyChooseUs = [
+  "Small Class Sizes",
+  "Enriching Curriculum",
+  "Creative Expression",
+];
+const subTitlesOfWhyChooseUs = [
+  `Ensuring individual attention for each child's unique needs`,
+  `Balanced program focusing on academic and social development`,
+  `Daily activities that spark imagination and creativity`,
+];
 export default function HomePage() {
   const visionTitle = "vizyon";
   const visionDescription = `Fanasan Anaokulu olarak, çocukların merak duygularını besleyerek
@@ -65,6 +90,23 @@ export default function HomePage() {
           />
         </VisionMissionTarget>
       </div>
+      <FullScreenModal
+        title={"Temel Değerlerimiz"}
+        icons={iconsOfOurCoreValues}
+        titles={titlesOfOurCoreValues}
+        subTitles={subTitlesOfOurCoreValues}
+        bgColor={"#007bff"}
+        color={"white"}
+      />
+      <FullScreenModal
+        title={"Neden Bizi Seçmelisiniz?"}
+        icons={iconsOfWhyChooseUs}
+        titles={titlesOfWhyChooseUs}
+        subTitles={subTitlesOfWhyChooseUs}
+        bgColor={"white"}
+        color={"#007bff"}
+        descriptionColor={"#374151"}
+      />
       <NewsAndAnnouncements />
     </>
   );

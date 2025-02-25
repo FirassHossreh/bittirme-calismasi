@@ -1,0 +1,12 @@
+.instructors-title {
+  background-color: #007bff;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.instructors-title h1 {
+  color: white;
+  font-size: 40px;
+  padding: 20px;
+}

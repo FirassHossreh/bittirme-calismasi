@@ -1,0 +1,11 @@
+.empty-back-box {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.empty-back-box h3,
+p {
+  text-align: center;
+}

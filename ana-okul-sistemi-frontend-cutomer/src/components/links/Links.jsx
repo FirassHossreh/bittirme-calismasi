@@ -75,12 +75,12 @@ export default function Links() {
           Hakkimizda
         </Link>
         <hr />
-        <Link href="/instructors" className="instructors">
+        <Link to="/instructors" className="instructors">
           <FontAwesomeIcon icon={faChalkboardTeacher} />
           Egitmenler
         </Link>
         <hr />
-        <Link href="/career" className="career">
+        <Link to="/career" className="career">
           <FontAwesomeIcon icon={faBriefcase} />
           Kariyer
         </Link>
