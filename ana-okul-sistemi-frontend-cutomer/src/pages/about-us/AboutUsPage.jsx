@@ -1,16 +1,19 @@
 import photoOfKindergarten from "../../assets/photo-of-kindergarten/Screenshot 2025-02-22 202947.png";
+import ContainerColumn from "../../components/container-column/ContainerColumn";
+import HeaderForPages from "../../components/header-for-pages/HeaderForPages";
 import EmployeeCard from "../../Modals/employee-box/EmployeeBox";
 import "./aboutUsPage.css";
 
 export default function AboutPage() {
   return (
     <>
-      <div className="about-title">
-        <h1>Fanasan Okuluna Hosgeldiniz</h1>
-      </div>
-      <div className="about-container">
-        <h3>Biz Kimiz ?</h3>
-        <p>
+      <HeaderForPages>
+        <h1 className="about-title">Fanasan Okuluna Hosgeldiniz</h1>
+      </HeaderForPages>
+
+      <ContainerColumn>
+        <h3 className="who-are-we">Biz Kimiz ?</h3>
+        <p className="who-are-we-description">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
           optio iste dignissimos consequatur dolor corporis similique quia
           necessitatibus enim nobis minima est esse quod iure commodi
@@ -19,14 +22,14 @@ export default function AboutPage() {
           quaerat dicta, maiores nostrum sit deserunt sed tenetur harum delectus
           laborum consectetur, dolorem dolor nam eveniet cumque aspernatur.
         </p>
-      </div>
-      <div className="about-container">
-        <div className="about-img">
+      </ContainerColumn>
+      <ContainerColumn>
+        <div className="about-img-container">
           <img src={photoOfKindergarten} alt="hata" />
         </div>
-      </div>
-      <div className="about-container">
-        <h1>idarecilerimiz</h1>
+      </ContainerColumn>
+      <ContainerColumn>
+        <h1 className="our-administrators">idarecilerimiz</h1>
         <div className="container-for-employees">
           <EmployeeCard
             name="firass"
@@ -45,7 +48,7 @@ export default function AboutPage() {
           <EmployeeCard />
           <EmployeeCard />
         </div>
-      </div>
+      </ContainerColumn>
     </>
   );
 }

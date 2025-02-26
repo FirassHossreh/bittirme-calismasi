@@ -1,0 +1,7 @@
+.header-for-pages {
+  background-color: #007bff;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
