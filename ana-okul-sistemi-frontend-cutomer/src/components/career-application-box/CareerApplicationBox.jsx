@@ -11,6 +11,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const styleforFirstRow = {
   color: "white",
@@ -76,7 +77,15 @@ export default function CareerApplicationBox({ children }) {
                 <TableCell style={styleForSecondRow}>{row.date}</TableCell>
                 <TableCell style={styleForSecondRow}>{row.location}</TableCell>
                 <TableCell style={styleForSecondRow}>{row.status}</TableCell>
-                <TableCell style={styleForSecondRow}>{row.status}</TableCell>
+                <TableCell style={styleForSecondRow}>
+                  <Button
+                    variant="contained"
+                    size="large"
+                    style={{ backgroundColor: "#007bff" }}
+                  >
+                    <Link to={"application-details"}>incele</Link>
+                  </Button>
+                </TableCell>
                 <TableCell
                   sx={{
                     fontWeight: "bold",
@@ -89,7 +98,7 @@ export default function CareerApplicationBox({ children }) {
                     size="large"
                     style={{ backgroundColor: "#007bff" }}
                   >
-                    Basvur
+                    <Link to={"application"}>Basvur</Link>
                   </Button>
                 </TableCell>
               </TableRow>
