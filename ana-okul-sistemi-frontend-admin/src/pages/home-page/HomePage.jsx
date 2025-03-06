@@ -24,18 +24,20 @@ export default function HomePage() {
   }
   return (
     <>
-      <div className="Homepage">
-        <div className="login-card">
-          <h1 className="login-card-header">Admin Login</h1>
+      <div className="bg-white size-full h-screen flex justify-center items-center">
+        <div className="rounded w-1/3" style={{ backgroundColor: "#00bfff" }}>
+          <h1 className="text-center text-white uppercase my-10">
+            Admin Login
+          </h1>
           <form
-            className="form-of-login-page"
+            className="form-of-login-page flex items-center flex-col"
             onSubmit={async (event) => {
               event.preventDefault();
               setResponse(await adminLoginService(user));
               setOpen(true);
-              const cookie =new Cookies()
-              console.log(response.status)
-              cookie.set(response.status)
+              const cookie = new Cookies();
+              console.log(response.status);
+              cookie.set(response.status);
             }}
           >
             <input
