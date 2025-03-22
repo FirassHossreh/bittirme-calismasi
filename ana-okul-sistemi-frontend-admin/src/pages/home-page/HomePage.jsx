@@ -24,13 +24,13 @@ export default function HomePage() {
   }
   return (
     <>
-      <div className="bg-white size-full h-screen flex justify-center items-center">
+      <div className="bg-white w-full h-screen flex justify-center items-center">
         <div className="rounded w-1/3" style={{ backgroundColor: "#00bfff" }}>
           <h1 className="text-center text-white uppercase my-10">
             Admin Login
           </h1>
           <form
-            className="form-of-login-page flex items-center flex-col"
+            className="flex items-center flex-col"
             onSubmit={async (event) => {
               event.preventDefault();
               setResponse(await adminLoginService(user));
@@ -49,6 +49,7 @@ export default function HomePage() {
                 setUser({ ...user, email: event.target.value });
               }}
             />
+
             <input
               type="password"
               className="password-input"

@@ -6,7 +6,7 @@
 }
 .form-of-login-page {
 }
-.form-of-login-page input {
+input {
   width: 50%;
   margin-bottom: 20px;
   outline: none;
