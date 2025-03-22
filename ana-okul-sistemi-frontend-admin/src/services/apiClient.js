@@ -1,9 +1,10 @@
 import axios from "axios";
 import cookies from "universal-cookie";
+import { APP_BASE_URL } from "../config/app-settings";
 
 const cookie = new cookies();
 const apiClient = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: APP_BASE_URL,
   headers: {
     "Content-Type": "application/json",
   },
