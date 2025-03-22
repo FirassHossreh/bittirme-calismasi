@@ -6,7 +6,7 @@ import App from "./App";
 import { store } from "./store/store";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
-import ToastConfig from "./config/ToastConfig";
+import ToastConfig from "./config/toast-config";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
