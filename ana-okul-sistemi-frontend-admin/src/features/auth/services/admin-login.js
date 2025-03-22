@@ -1,9 +1,10 @@
-import apiClient from "../apiClient";
-
+import apiClient from "../../../services/apiClient";
+import { ROOT_API } from "../../../constants/api-root";
+import { ADMIN_LOGIN_API } from "../constants/admin-login-api";
 export default async function adminLoginService(data) {
   try {
     const response = await apiClient.post(
-      "/api/v1/kindergarten/admin/login",
+      `${ROOT_API}/${ADMIN_LOGIN_API}`,
       data,
       {
         usetoken: false,

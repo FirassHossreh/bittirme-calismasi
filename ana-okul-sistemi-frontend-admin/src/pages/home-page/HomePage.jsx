@@ -1,5 +1,5 @@
 import { useState } from "react";
-import adminLoginService from "../../services/admin-login-service/adminLoginService";
+import adminLoginService from "../../features/auth/services/admin-login";
 import "./homePage.css";
 import Toast from "../../components/toast/Toast";
 import { useToast } from "../../providers/ToastProvider";
