@@ -11,11 +11,6 @@ export default function CustomInput({
   placeholder,
   variant,
 }) {
-  function onSubmit(values, actions) {
-    console.log(values.email);
-    console.log(actions);
-  }
-  function buttonClick() {}
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   return (
@@ -71,7 +66,7 @@ export default function CustomInput({
                   ),
                 },
               }
-            : ""
+            : {}
         }
         name={name}
         value={value}

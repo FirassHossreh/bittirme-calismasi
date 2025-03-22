@@ -1,5 +1,5 @@
 import { useState } from "react";
-import adminLoginService from "../../features/auth/services/admin-login";
+import { loginService } from "../../features/auth/services/login";
 import "./homePage.css";
 import Toast from "../../components/toast/Toast";
 import { useToast } from "../../providers/ToastProvider";
@@ -33,7 +33,7 @@ export default function HomePage() {
             className="flex items-center flex-col"
             onSubmit={async (event) => {
               event.preventDefault();
-              setResponse(await adminLoginService(user));
+              setResponse(await loginService(user));
               setOpen(true);
               const cookie = new Cookies();
               console.log(response.status);

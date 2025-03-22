@@ -8,22 +8,34 @@ import { toast } from "react-toastify";
 import CustomInput from "../../features/auth/components/cutom-input";
 import FormTitle from "../../features/auth/components/form-title";
 import { PRIMARY_COLOR } from "../../constants/colors";
+import { loginService } from "../../features/auth/services/login";
 import { loginSchema } from "../../features/auth/validations/login-validation";
+import { useEffect, useState } from "react";
 
 export default function Login() {
-  const { values, errors, handleChange, handleSubmit } = useFormik({
-    initialValues: {
-      email: "",
-      password: "",
-    },
-    validationSchema: loginSchema,
-    onSubmit,
-  });
-  function onSubmit(values, actions) {
+  const { values, errors, isSubmitting, handleChange, handleSubmit } =
+    useFormik({
+      initialValues: {
+        email: "",
+        password: "",
+      },
+      validationSchema: loginSchema,
+      onSubmit,
+    });
+  const [response, setResponse] = useState("");
+  async function onSubmit(values, actions) {
+    setResponse(await loginService(values));
     console.log(values.email);
     console.log(actions);
   }
-  function buttonClick() {}
+
+  function buttonClick() {
+    if (errors.email) {
+      toast.error(errors.email);
+    } else if (errors.password) {
+      toast.error(errors.password);
+    }
+  }
   return (
     <>
       <div className="w-full h-screen flex justify-center items-center">
@@ -44,9 +56,7 @@ export default function Login() {
               placeholder={"Enter your Email"}
               variant={"email"}
             />
-            {/* {errors.email && (
-              <p className="text-xs w-64 text-red-800">{errors.email}</p>
-            )} */}
+
             <CustomInput
               onChange={handleChange}
               value={values.password}
@@ -55,9 +65,7 @@ export default function Login() {
               placeholder={"Enter your Password"}
               variant={"password"}
             />
-            {/* {errors.password && (
-              <p className="text-xs w-64 text-red-800">{errors.password}</p>
-            )} */}
+
             <Link className="text-sm text-white  self-start mt-[20px] ">
               Forgot Password ?
             </Link>
@@ -68,6 +76,7 @@ export default function Login() {
                 style={{ color: "white", backgroundColor: "#0056b3" }}
                 type="submit"
                 onClick={buttonClick}
+                disabled={isSubmitting}
               >
                 Login
               </Button>
@@ -75,6 +84,7 @@ export default function Login() {
                 variant="outlined"
                 className="!text-[10px]"
                 style={{ color: "white", borderColor: "white" }}
+                disabled={isSubmitting}
               >
                 ogretmen kaydi icin
               </Button>
