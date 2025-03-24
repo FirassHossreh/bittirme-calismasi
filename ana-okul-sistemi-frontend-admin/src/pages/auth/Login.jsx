@@ -25,10 +25,12 @@ export default function Login() {
   const [response, setResponse] = useState("");
   async function onSubmit(values, actions) {
     setResponse(await loginService(values));
-    console.log(values.email);
-    console.log(actions);
-  }
 
+    actions.resetForm();
+  }
+  useEffect(() => {
+    console.log(response);
+  }, [response]);
   function buttonClick() {
     if (errors.email) {
       toast.error(errors.email);
