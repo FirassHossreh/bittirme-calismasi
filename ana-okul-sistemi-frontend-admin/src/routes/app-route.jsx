@@ -3,7 +3,6 @@ import Login from "../pages/auth/login";
 import HomePage from "../pages/home-page/HomePage";
 import PrivateRoute from "./private-route";
 import NotFound from "../pages/not-found";
-import About from "../pages/about";
 import Home from "../pages/home";
 import AppLayout from "../layouts/app-layout";
 import Teachers from "../pages/teachers";
