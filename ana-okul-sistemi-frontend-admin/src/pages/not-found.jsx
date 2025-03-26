@@ -1,7 +1,7 @@
 export default function NotFound() {
   return (
     <>
-      <h1>notfound</h1>
+      <h1>notfound Sayfasi</h1>
     </>
   );
 }
