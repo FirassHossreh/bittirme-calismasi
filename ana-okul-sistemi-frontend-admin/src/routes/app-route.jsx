@@ -12,7 +12,7 @@ import FoodList from "../pages/food-list";
 import Events from "../pages/events";
 import ReportsStatistics from "../pages/reports-statistics";
 import Chat from "../pages/chat";
-
+import FirassLayout from "../layouts/firass-layout";
 export default function AppRoutes() {
   return (
     <Routes>
@@ -33,6 +33,8 @@ export default function AppRoutes() {
           <Route path="/homepage" element={<HomePage />} />
           <Route path="notfound" element={<NotFound />} />
         </Route>
+        <Route path="firass-layout" element={<FirassLayout />} />
+
         <Route path="*" element={<Navigate to="/notfound" />} />
       </Route>
       <Route path="*" element={<Navigate to="/login" />} />

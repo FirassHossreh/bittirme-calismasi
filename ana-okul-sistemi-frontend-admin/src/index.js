@@ -7,7 +7,7 @@ import { store } from "./store/store";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 import ToastConfig from "./config/toast-config";
-
+import "./config/i18n";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>

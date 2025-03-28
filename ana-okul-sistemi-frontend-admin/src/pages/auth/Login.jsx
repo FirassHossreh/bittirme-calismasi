@@ -11,6 +11,8 @@ import { PRIMARY_COLOR } from "../../constants/colors";
 import { loginService } from "../../features/auth/services/login";
 import { loginSchema } from "../../features/auth/validations/login-validation";
 import { useEffect, useState } from "react";
+import LanguageSelector from "../../components/language-selector";
+import AuthLogo from "../../features/auth/components/auth-logo";
 
 export default function Login() {
   const { values, errors, isSubmitting, handleChange, handleSubmit } =
@@ -40,7 +42,15 @@ export default function Login() {
   }
   return (
     <>
-      <div className="w-full h-screen flex justify-center items-center">
+      <div className="w-full h-screen flex justify-center items-center relative">
+        <div className="flex items-center absolute justify-between top-0 w-full">
+          <div className="w-24 h-24 ml-4">
+            <AuthLogo />
+          </div>
+          <div className="mr-4">
+            <LanguageSelector />
+          </div>
+        </div>
         <Box
           className="w-96 rounded flex justify-center"
           style={{ backgroundColor: PRIMARY_COLOR }}
