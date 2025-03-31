@@ -4,7 +4,7 @@ import { Divider, IconButton } from "@mui/material";
 import LayoutLogo from "../features/app-layout/components/layout-logo";
 import { Link } from "react-router-dom";
 import LogoImg from "../assets/fanasan-logo.png";
-import { PRIMARY_COLOR } from "../constants/colors";
+import { PRIMARY_LIGHT_COLOR } from "../constants/colors";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import PersonIcon from "@mui/icons-material/Person";
 import LayoutSideBar from "../features/app-layout/components/layout-side-bar";
@@ -30,7 +30,7 @@ export default function FirassLayout({ children }) {
               className="flex items-center gap-2 font-bold text-xl"
             >
               <img src={LogoImg} alt="logo-img" className="w-10 h-10" />
-              <h1 style={{ color: PRIMARY_COLOR }}>FANASAN</h1>
+              <h1 style={{ color: PRIMARY_LIGHT_COLOR }}>FANASAN</h1>
             </Link>
           </LayoutLogo>
         </div>

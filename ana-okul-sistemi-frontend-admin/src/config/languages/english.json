@@ -1,0 +1,9 @@
+{
+  "login": "Login",
+  "email": "Email",
+  "email-place-holder": "Enter your Email",
+  "password": "Password",
+  "password-place-holder": "Enter your Password",
+  "forgot-password": "Forgot Password ?",
+  "teacher-register": "For teacher registration"
+}

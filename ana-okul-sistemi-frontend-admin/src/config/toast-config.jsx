@@ -1,6 +1,9 @@
 import { Bounce, ToastContainer } from "react-toastify";
+import i18n from "./i18n";
+import useLanguageOption from "../hooks/useLanguageOption";
 
 export default function ToastConfig() {
+  const languageOption = useLanguageOption();
   return (
     <>
       <ToastContainer
@@ -9,7 +12,7 @@ export default function ToastConfig() {
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick={false}
-        rtl={false}
+        rtl={languageOption === "ar"}
         pauseOnFocusLoss
         draggable
         pauseOnHover

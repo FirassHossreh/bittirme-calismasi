@@ -20,7 +20,6 @@ function App() {
         <div className="App">
           <AppRoutes />
           {/* <HomePage /> */}
-          {t("WelcomeMasssage")}
         </div>
       </ToastProvider>
     </ThemeProvider>

@@ -3,6 +3,7 @@ import TextField from "@mui/material/TextField";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import i18n from "../../../config/i18n";
 export default function CustomInput({
   onChange,
   value,
@@ -11,6 +12,7 @@ export default function CustomInput({
   placeholder,
   variant,
 }) {
+  const languageOption = i18n.language;
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   return (
@@ -22,8 +24,9 @@ export default function CustomInput({
           variant === "password" ? (showPassword ? "text" : "password") : "text"
         }
         placeholder={placeholder}
-        className="w-64 !mt-2"
         sx={{
+          width: "16rem",
+          marginTop: "0.5rem",
           "& .MuiInputLabel-root.Mui-focused": {
             color: "white", // Focus olunca label rengi
           },
@@ -43,8 +46,25 @@ export default function CustomInput({
             borderBottomColor: "white !important", // Hover sırasında alt çizgi rengi
           },
         }}
-        slotProps={
-          variant === "password"
+        slotProps={{
+          ...(languageOption === "ar"
+            ? {
+                input: {
+                  style: { textAlign: "right", direction: "rtl" }, // Placeholder ve input metni sağa hizalı
+                },
+                inputLabel: {
+                  style: {
+                    textAlign: "right",
+                    direction: "rtl",
+                    width: "100%",
+                    transformOrigin: "top right", // Label sağ üst köşe baz alınarak hizalansın
+                    left: "auto",
+                    right: 0, // Tam sağa yaslama
+                  },
+                },
+              }
+            : {}),
+          ...(variant === "password"
             ? {
                 input: {
                   endAdornment: (
@@ -66,8 +86,8 @@ export default function CustomInput({
                   ),
                 },
               }
-            : {}
-        }
+            : {}),
+        }}
         name={name}
         value={value}
         onChange={onChange}
