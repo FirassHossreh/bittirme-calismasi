@@ -1,6 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "../pages/auth/login";
-import HomePage from "../pages/home-page/HomePage";
 import PrivateRoute from "./private-route";
 import NotFound from "../pages/not-found";
 import Home from "../pages/home";
@@ -30,7 +29,6 @@ export default function AppRoutes() {
           </Route>
           <Route path="chat" element={<Chat />} />
           <Route path="reports-statistics" element={<ReportsStatistics />} />
-          <Route path="/homepage" element={<HomePage />} />
           <Route path="notfound" element={<NotFound />} />
         </Route>
         <Route path="firass-layout" element={<FirassLayout />} />
