@@ -1,8 +1,7 @@
 import axios from "axios";
-import cookies from "universal-cookie";
-import { APP_DEVELOP_BASE_URL } from "../config/app-settings";
-
-const cookie = new cookies();
+import { APP_DEVELOP_BASE_URL } from "../constants/api-root";
+import { toast } from "react-toastify";
+import appSettings from "../config/app-settings.json";
 const apiClient = axios.create({
   baseURL: APP_DEVELOP_BASE_URL,
   headers: {
@@ -10,15 +9,57 @@ const apiClient = axios.create({
   },
   withCredentials: true,
 });
-apiClient.interceptors.request.use(
-  (config) => {
-    const token = cookie.get("token");
-    if (token && config.useToken === true) {
-      config.headers.Authorization = `Bearer ${token}`;
+apiClient.interceptors.request.use((config) => {
+  const language =
+    localStorage.getItem("language-option") || appSettings.DEFAULT_LANGUAGE;
+  config.headers["Accept-Language"] = language;
+  return config;
+});
+apiClient.interceptors.response.use(
+  (response) => {
+    const status = response.status;
+    const type = response.data.type;
+    if (!type) {
+      if (status === 200) {
+        toast.success(response.data.message);
+      } else if (status === 201) {
+        toast.success(response.data.message);
+      } else {
+        toast.success(response.data.message);
+      }
     }
-    return config;
+
+    return response;
   },
   (error) => {
+    if (!error.response) {
+      toast.error("you don't have internet");
+    } else {
+      const type = error.response.data.type;
+      if (!type) {
+        const status = error.response.status;
+        const message = error.response.data.message;
+        if (status === 400) {
+          toast.error("bad requist");
+        } else if (status === 401) {
+          toast.error(message);
+        } else if (status === 403) {
+          toast.error("girme yetikiniz yok");
+        } else if (status === 404) {
+          toast.error("404");
+        } else if (status === 500) {
+          toast.error("Sunucu hatası! Lütfen tekrar deneyin.");
+        } else if (status === 502) {
+          toast.error("Geçici sunucu hatası!");
+        } else if (status === 503) {
+          toast.error("Sunucu şu anda kullanılamaz.");
+        } else if (status === 504) {
+          toast.error("Gateway zaman aşımı!");
+        } else {
+          toast.error(`⚠️ Bilinmeyen hata: ${error.response.data.message}`);
+        }
+      }
+    }
     return Promise.reject(error);
   }
 );

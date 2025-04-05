@@ -1,5 +1,4 @@
 import { Bounce, ToastContainer } from "react-toastify";
-import i18n from "./i18n";
 import useLanguageOption from "../hooks/useLanguageOption";
 
 export default function ToastConfig() {

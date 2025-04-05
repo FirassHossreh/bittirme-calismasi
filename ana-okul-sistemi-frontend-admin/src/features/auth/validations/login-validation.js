@@ -8,5 +8,5 @@ export const loginSchema = yub.object().shape({
   password: yub
     .string()
     .required("sifre girmek zorunludur")
-    .min(2, "sifre en az 8 karakter olmalidir"),
+    .min(8, "sifre en az 8 karakter olmalidir"),
 });

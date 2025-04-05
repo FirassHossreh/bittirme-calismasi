@@ -1,28 +1,38 @@
-/* Style Operations */
+/* style libraries */
 import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
-/* Logic Operations */
-import { Link } from "react-router-dom";
+/* install libraries */
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
+/* imported file */
 import CustomInput from "../../features/auth/components/cutom-input";
 import FormTitle from "../../features/auth/components/form-title";
 import { loginService } from "../../features/auth/services/login";
 import { loginSchema } from "../../features/auth/validations/login-validation";
-import { useEffect, useState } from "react";
 import LanguageSelector from "../../components/language-selector";
 import AuthLogo from "../../features/auth/components/auth-logo";
-import { useTranslation } from "react-i18next";
 import i18n from "../../config/i18n";
 import ThemeSelector from "../../components/theme-selector";
 import useThemeColors from "../../hooks/useThemeColors";
+import { useEffect } from "react";
+import { removeToken } from "../../services/remove-token";
 
 export default function Login() {
+  useEffect(() => {
+    async function remove() {
+      await removeToken();
+    }
+    remove();
+  }, []);
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
   const { primaryColor, secondaryColor, tertiaryColor, themeOption } =
     useThemeColors();
   const languageOption = i18n.language;
-  const { values, errors, isSubmitting, handleChange, handleSubmit } =
+  const { values, isSubmitting, handleChange, handleSubmit, validateForm } =
     useFormik({
       initialValues: {
         email: "",
@@ -31,20 +41,22 @@ export default function Login() {
       validationSchema: loginSchema,
       onSubmit,
     });
-  const [response, setResponse] = useState("");
   async function onSubmit(values, actions) {
-    setResponse(await loginService(values));
+    const result = await loginService(values);
     actions.resetForm();
-  }
-  useEffect(() => {
-    console.log(response);
-  }, [response]);
-  function buttonClick() {
-    if (errors.email) {
-      toast.error(errors.email);
-    } else if (errors.password) {
-      toast.error(errors.password);
+    if (result.status === 200) {
+      navigate("/firass-layout");
     }
+  }
+
+  function handleLoginClick() {
+    validateForm().then((formErrors) => {
+      if (formErrors.email) {
+        toast.warning(formErrors.email);
+      } else if (formErrors.password) {
+        toast.warning(formErrors.password);
+      }
+    });
   }
   return (
     <>
@@ -112,7 +124,7 @@ export default function Login() {
                   flex: "1",
                 }}
                 type="submit"
-                onClick={buttonClick}
+                onClick={handleLoginClick}
                 disabled={isSubmitting}
               >
                 {t("login")}
@@ -127,7 +139,7 @@ export default function Login() {
                 }}
                 disabled={isSubmitting}
               >
-                {t("teacher-register")}
+                <Link to="/teacher-registration">{t("teacher-register")}</Link>
               </Button>
             </div>
           </form>

@@ -1,0 +1,6 @@
+{
+  "login_success": "Giriş başarılı",
+  "login_failed": "Şifreniz veya e-Mail adresiniz yanlış.",
+  "token_invalid": "Token eksik veya geçersiz.",
+  "logout_success": "Başarılı bir şekilde çıkış yapıldı"
+}

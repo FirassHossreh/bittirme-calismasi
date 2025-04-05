@@ -1,3 +1,4 @@
-export const BASE_URL = "http://localhost:5000";
-export const DEVELOP_BASE_URL = "http://localhost:5000";
-export const ROOT_API = "/api/v1/kindergarten";
+import appSettings from "../config/app-settings.json";
+export const APP_PRODUCTION_BASE_URL = appSettings.PRODUCTION_BASE_URL;
+export const APP_DEVELOP_BASE_URL = appSettings.DEVELOP_BASE_URL;
+export const APP_ROOT_API = appSettings.ROOT_API;

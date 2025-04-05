@@ -1,0 +1,6 @@
+{
+  "login_success": "login successfully",
+  "login_failed": "your password or email is incorrect",
+  "token_invalid": "Token is missing or invalid",
+  "logout_success": "Successfully logged out."
+}

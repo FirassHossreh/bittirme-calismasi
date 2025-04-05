@@ -18,12 +18,12 @@ const login = asyncHandler(async (req, res) => {
 
   if (!UserEmail) {
     return res.status(401).json({
-      msg: "Your password or email is incorrect",
+      message: req.__("login_failed"),
     });
   }
   if (!UserPassword) {
     return res.status(401).json({
-      msg: "your password or email is incorrect",
+      message: req.__("login_failed"),
     });
   }
   const token = jwt.sign({ id: UserEmail._id }, process.env.SECRET_KEY, {
@@ -35,23 +35,35 @@ const login = asyncHandler(async (req, res) => {
     secure: process.env.NODE_ENV === "production",
     sameSite: process.env.NODE_ENV === "production" ? "None" : "lax",
   });
-  return res.status(200).json({ message: "login successfully" });
+  return res.status(200).json({ message: req.__("login_success") });
 });
 
 const IsAuthenticated = (req, res) => {
   const token = req.cookies["token"];
   if (!token) {
-    return res.status(401).json({ message: "Token is missing or invalid" });
+    return res.status(401).json({ message: req.__("token_invalid") });
   }
   try {
     const user = jwt.verify(token, process.env.SECRET_KEY);
-    return res.json({ id: user.id, email: user.email });
+    return res.status(200).json({ id: user.id, email: user.email });
   } catch (err) {
     console.error("JWT error:", err);
-    return res.status(401).json({ message: "Invalid or expired token" });
+    return res
+      .status(401)
+      .json({ message: "Invalid or expired token", type: 2 });
+  }
+};
+const removeToken = (req, res) => {
+  const token = req.cookies["token"];
+  if (token) {
+    res.clearCookie("token");
+    return res.status(200).json({ message: "Çıkış yapıldı" });
+  } else {
+    return res.status(200).json({ message: "zaten token yok", type: 2 });
   }
 };
 module.exports = {
   login,
   IsAuthenticated,
+  removeToken,
 };
