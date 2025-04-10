@@ -13,11 +13,14 @@ import ReportsStatistics from "../pages/reports-statistics";
 import Chat from "../pages/chat";
 import FirassLayout from "../layouts/firass-layout";
 import TeacherRegistration from "../pages/auth/teacher-registration";
+import AuthLayout from "../layouts/auth-layout";
 export default function AppRoutes() {
   return (
     <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/teacher-registration" element={<TeacherRegistration />} />
+      <Route element={<AuthLayout />}>
+        <Route index path="/login" element={<Login />} />
+        <Route path="/teacher-registration" element={<TeacherRegistration />} />
+      </Route>
       <Route element={<PrivateRoute />}>
         <Route path="/" element={<AppLayout />}>
           <Route index element={<Home />} />

@@ -11,10 +11,7 @@ import CustomInput from "../../features/auth/components/cutom-input";
 import FormTitle from "../../features/auth/components/form-title";
 import { loginService } from "../../features/auth/services/login";
 import { loginSchema } from "../../features/auth/validations/login-validation";
-import LanguageSelector from "../../components/language-selector";
-import AuthLogo from "../../features/auth/components/auth-logo";
 import i18n from "../../config/i18n";
-import ThemeSelector from "../../components/theme-selector";
 import useThemeColors from "../../hooks/useThemeColors";
 import { useEffect } from "react";
 import { removeToken } from "../../services/remove-token";
@@ -61,7 +58,7 @@ export default function Login() {
   return (
     <>
       <div
-        className="w-full h-screen flex justify-center items-center relative"
+        className="w-full h-screen flex justify-center items-center absolute top-0"
         dir={languageOption === "ar" ? "rtl" : "ltr"}
         style={
           themeOption === "light"
@@ -69,15 +66,6 @@ export default function Login() {
             : { backgroundColor: "#002347" }
         }
       >
-        <div className="flex items-center absolute justify-between top-0 w-full">
-          <div className="w-24 h-24 m-2">
-            <AuthLogo />
-          </div>
-          <div className="mx-4 flex items-center gap-4">
-            <ThemeSelector />
-            <LanguageSelector />
-          </div>
-        </div>
         <Box
           sx={{
             backgroundColor: primaryColor,

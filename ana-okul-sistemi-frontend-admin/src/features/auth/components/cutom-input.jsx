@@ -1,7 +1,6 @@
 import { IconButton, InputAdornment } from "@mui/material";
 import TextField from "@mui/material/TextField";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useState } from "react";
 import i18n from "../../../config/i18n";
 export default function CustomInput({
@@ -77,10 +76,23 @@ export default function CustomInput({
                             : "display the password"
                         }
                       >
-                        <FontAwesomeIcon
-                          icon={showPassword ? faEye : faEyeSlash}
-                          className="text-lg text-white"
-                        />
+                        {showPassword ? (
+                          <Visibility
+                            sx={{
+                              color: "white",
+                              fontSize: "1.5rem",
+                              lineHeight: "2rem",
+                            }}
+                          />
+                        ) : (
+                          <VisibilityOff
+                            sx={{
+                              color: "white",
+                              fontSize: "1.5rem",
+                              lineHeight: "2rem",
+                            }}
+                          />
+                        )}
                       </IconButton>
                     </InputAdornment>
                   ),
