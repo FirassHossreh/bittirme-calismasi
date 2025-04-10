@@ -1,7 +1,7 @@
 import { IconButton } from "@mui/material";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { handleThemeChange } from "../store/slices/ThemeSlice";
 export default function ThemeSelector() {
