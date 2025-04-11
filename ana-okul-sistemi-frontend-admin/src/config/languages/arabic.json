@@ -5,5 +5,19 @@
   "password": "كلمة السر",
   "password-place-holder": "أدخل كلمة السر الخاصة بك",
   "forgot-password": "نسيت كلمة السر ؟",
-  "teacher-register": "لتسجيل المعلم"
+  "for-teacher-register": "لتسجيل المعلم",
+  "name": "الاسم",
+  "surname": "اللقب",
+  "repeat-password": "تأكيد كلمة المرور",
+  "date-of-birth": "تاريخ الميلاد",
+  "phone-number": "رقم الهاتف",
+  "image": "الصورة",
+  "name-place-holder": "أدخل اسمك",
+  "surname-place-holder": "أدخل لقبك",
+  "repeat-password-place-holder": "أعد إدخال كلمة المرور",
+  "date-of-birth-place-holder": "أدخل تاريخ ميلادك",
+  "phone-number-place-holder": "أدخل رقم هاتفك",
+  "image-place-holder": "أدخل صورتك",
+  "teacher-register": "تسجيل المعلم",
+  "deneme": "محاولة"
 }

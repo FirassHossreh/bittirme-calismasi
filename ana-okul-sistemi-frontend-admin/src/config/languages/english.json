@@ -5,5 +5,19 @@
   "password": "Password",
   "password-place-holder": "Enter your Password",
   "forgot-password": "Forgot Password ?",
-  "teacher-register": "For teacher registration"
+  "for-teacher-register": "For teacher registration",
+  "name": "Name",
+  "surname": "Surname",
+  "repeat-password": "Repeat Password",
+  "date-of-birth": "Date of Birth",
+  "phone-number": "Phone Number",
+  "image": "Photo",
+  "name-place-holder": "Enter your name",
+  "surname-place-holder": "Enter your surname",
+  "repeat-password-place-holder": "Re-enter your password",
+  "date-of-birth-place-holder": "Enter your date of birth",
+  "phone-number-place-holder": "Enter your phone number",
+  "image-place-holder": "Upload your photo",
+  "teacher-register": "Teacher Registration",
+  "deneme": "test"
 }

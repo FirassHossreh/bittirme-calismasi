@@ -11,7 +11,6 @@ import CustomInput from "../../features/auth/components/cutom-input";
 import FormTitle from "../../features/auth/components/form-title";
 import { loginService } from "../../features/auth/services/login";
 import { loginSchema } from "../../features/auth/validations/login-validation";
-import i18n from "../../config/i18n";
 import useThemeColors from "../../hooks/useThemeColors";
 import { useEffect } from "react";
 import { removeToken } from "../../services/remove-token";
@@ -28,7 +27,6 @@ export default function Login() {
 
   const { primaryColor, secondaryColor, tertiaryColor, themeOption } =
     useThemeColors();
-  const languageOption = i18n.language;
   const { values, isSubmitting, handleChange, handleSubmit, validateForm } =
     useFormik({
       initialValues: {
@@ -59,7 +57,6 @@ export default function Login() {
     <>
       <div
         className="w-full h-screen flex justify-center items-center absolute top-0"
-        dir={languageOption === "ar" ? "rtl" : "ltr"}
         style={
           themeOption === "light"
             ? { backgroundColor: "white" }
@@ -127,7 +124,9 @@ export default function Login() {
                 }}
                 disabled={isSubmitting}
               >
-                <Link to="/teacher-registration">{t("teacher-register")}</Link>
+                <Link to="/teacher-registration">
+                  {t("for-teacher-register")}
+                </Link>
               </Button>
             </div>
           </form>

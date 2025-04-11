@@ -5,5 +5,19 @@
   "password": "Şifre",
   "password-place-holder": "Şifrenizi girin",
   "forgot-password": "Şifremi Unuttum ?",
-  "teacher-register": "Öğretmen kaydı için"
+  "for-teacher-register": "Öğretmen kaydı için",
+  "name": "Isim",
+  "surname": "Soy Isim",
+  "repeat-password": "Şifre Tekrarı",
+  "date-of-birth": "Dogum Tarihi",
+  "phone-number": "Telefon Numarası",
+  "image": "Fotograf",
+  "name-place-holder": "Isiminiz Giriniz",
+  "surname-place-holder": "Soy Isiminiz Giriniz",
+  "repeat-password-place-holder": "Şifre Tekrarı Giriniz",
+  "date-of-birth-place-holder": "Dogum Tarihiniz Giriniz",
+  "phone-number-place-holder": "Telefon Numaraniz Giriniz",
+  "image-place-holder": "Fotografinizi Giriniz",
+  "teacher-register": "Öğretmen Kaydı",
+  "deneme": "deneme"
 }
