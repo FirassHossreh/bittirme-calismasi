@@ -19,5 +19,8 @@
   "phone-number-place-holder": "Enter your phone number",
   "image-place-holder": "Upload your photo",
   "teacher-register": "Teacher Registration",
-  "deneme": "test"
+  "upload-photo": "Upload Photo",
+  "select-photo": "Select Photo",
+  "upload": "Upload",
+  "cancel": "Cancel"
 }

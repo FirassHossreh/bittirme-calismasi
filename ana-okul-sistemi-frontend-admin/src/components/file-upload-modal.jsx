@@ -1,12 +1,20 @@
 import { useState } from "react";
 import { Box, Button, Modal, Typography, Avatar, Stack } from "@mui/material";
 import { PhotoCamera } from "@mui/icons-material";
+import { useTranslation } from "react-i18next";
+import useLanguageOption from "../hooks/useLanguageOption";
 
-export default function FileUploadModal() {
+export default function FileUploadModal({
+  handleUploadParent,
+  value,
+  onChange,
+  name,
+}) {
   const [open, setOpen] = useState(false);
   const [imagePreview, setImagePreview] = useState(null);
   const [file, setFile] = useState(null);
-
+  const { t } = useTranslation();
+  const languageOption = useLanguageOption();
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
@@ -20,11 +28,18 @@ export default function FileUploadModal() {
       setImagePreview(URL.createObjectURL(selected));
       setFile(selected);
     }
+    onChange({
+      target: {
+        name: name,
+        value: selected,
+      },
+    });
   };
 
   const handleUpload = () => {
     // Burada dosyayı backend'e yollayabilirsin.
     console.log("Gönderilecek dosya:", file);
+    handleUploadParent(file.name);
     handleClose(); // işlemler bitince modal'ı kapat
   };
 
@@ -34,14 +49,29 @@ export default function FileUploadModal() {
         variant="contained"
         startIcon={<PhotoCamera />}
         onClick={handleOpen}
-        style={{
-          cursor: "pointer",
-          backgroundColor: "white",
-          color: "#007BFF",
-          width: "16rem",
-        }}
+        style={
+          languageOption === "ar"
+            ? {
+                cursor: "pointer",
+                backgroundColor: "white",
+                color: "#007BFF",
+                width: "16rem",
+
+                display: "flex",
+                alignItems: "center", // ikon ve yazı aynı hizada olsun diye
+                justifyContent: "center",
+                flexDirection: "row-reverse", // RTL için ikon sağda
+              }
+            : {
+                cursor: "pointer",
+                backgroundColor: "white",
+                color: "#007BFF",
+                width: "16rem",
+                marginBottom: "2rem",
+              }
+        }
       >
-        Fotoğraf Yükle
+        {t("upload-photo")}
       </Button>
 
       <Modal open={open} onClose={handleClose}>
@@ -58,8 +88,12 @@ export default function FileUploadModal() {
             borderRadius: 2,
           }}
         >
-          <Typography variant="h6" gutterBottom>
-            Fotoğraf Seç
+          <Typography
+            variant="h6"
+            gutterBottom
+            sx={languageOption === "ar" ? { direction: "rtl" } : {}}
+          >
+            {t("select-photo")}
           </Typography>
 
           {imagePreview && (
@@ -74,17 +108,17 @@ export default function FileUploadModal() {
             <input
               accept="image/*"
               style={{ display: "none" }}
-              id="upload-photo"
+              id="uploadPhoto"
               type="file"
               onChange={handleFileChange}
             />
-            <label htmlFor="upload-photo">
+            <label htmlFor="uploadPhoto">
               <Button
                 variant="outlined"
                 component="span"
                 sx={{ color: "#007BFF", borderColor: "#007BFF" }}
               >
-                Fotoğraf Seç
+                {t("select-photo")}
               </Button>
             </label>
 
@@ -94,10 +128,10 @@ export default function FileUploadModal() {
               disabled={!file}
               onClick={handleUpload}
             >
-              Yükle
+              {t("upload")}
             </Button>
             <Button onClick={handleClose} sx={{ color: "#007BFF" }}>
-              İptal
+              {t("cancel")}
             </Button>
           </Stack>
         </Box>

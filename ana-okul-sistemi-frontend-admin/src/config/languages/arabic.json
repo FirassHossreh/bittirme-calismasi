@@ -8,16 +8,19 @@
   "for-teacher-register": "لتسجيل المعلم",
   "name": "الاسم",
   "surname": "اللقب",
-  "repeat-password": "تأكيد كلمة المرور",
+  "repeat-password": "تأكيد كلمة السر",
   "date-of-birth": "تاريخ الميلاد",
   "phone-number": "رقم الهاتف",
   "image": "الصورة",
   "name-place-holder": "أدخل اسمك",
   "surname-place-holder": "أدخل لقبك",
-  "repeat-password-place-holder": "أعد إدخال كلمة المرور",
+  "repeat-password-place-holder": "أعد إدخال كلمة السر",
   "date-of-birth-place-holder": "أدخل تاريخ ميلادك",
   "phone-number-place-holder": "أدخل رقم هاتفك",
   "image-place-holder": "أدخل صورتك",
   "teacher-register": "تسجيل المعلم",
-  "deneme": "محاولة"
+  "upload-photo": "أرفق صورة",
+  "select-photo": "اختر صورة",
+  "upload": "تحميل",
+  "cancel": "إلغاء"
 }

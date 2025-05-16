@@ -19,5 +19,8 @@
   "phone-number-place-holder": "Telefon Numaraniz Giriniz",
   "image-place-holder": "Fotografinizi Giriniz",
   "teacher-register": "Öğretmen Kaydı",
-  "deneme": "deneme"
+  "upload-photo": "Fotoğraf Yükleyiniz",
+  "select-photo": "Fotoğraf Seçiniz",
+  "upload": "Yükle",
+  "cancel": "Iptal"
 }

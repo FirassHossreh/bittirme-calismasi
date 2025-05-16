@@ -1,3 +1,8 @@
 body {
   position: relative;
 }
+.sy {
+  background-image: url("../public/assets/syria-flag.svg") !important;
+  background-size: cover !important;
+  background-position: center !important;
+}

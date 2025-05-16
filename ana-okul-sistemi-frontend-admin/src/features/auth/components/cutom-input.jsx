@@ -18,6 +18,7 @@ export default function CustomInput({
     <>
       <TextField
         variant="standard"
+        pattern="[A-Za-z0-9]+"
         label={label}
         type={
           variant === "password" ? (showPassword ? "text" : "password") : "text"

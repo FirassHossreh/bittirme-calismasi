@@ -17,7 +17,7 @@ export default function AuthLayout() {
             <AuthLogo />
           </div>
           <div className="flex items-center gap-4 m-2">
-            <ThemeSelector />
+            {/* <ThemeSelector /> */}
             <LanguageSelector />
           </div>
         </div>

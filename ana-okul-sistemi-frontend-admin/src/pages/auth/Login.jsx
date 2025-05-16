@@ -100,7 +100,7 @@ export default function Login() {
             >
               {t("forgot-password")}
             </Link>
-            <div className="flex justify-between my-7 gap-3 w-full">
+            <div className="flex justify-between my-7 gap-3 w-full ">
               <Button
                 variant="contained"
                 sx={{
@@ -114,20 +114,26 @@ export default function Login() {
               >
                 {t("login")}
               </Button>
-              <Button
-                variant="outlined"
-                sx={{
-                  color: secondaryColor,
-                  borderColor: secondaryColor,
-                  fontSize: "0.625rem",
+
+              <Link
+                to="/teacher-registration"
+                style={{
                   flex: "1",
                 }}
-                disabled={isSubmitting}
               >
-                <Link to="/teacher-registration">
+                <Button
+                  variant="outlined"
+                  sx={{
+                    color: secondaryColor,
+                    borderColor: secondaryColor,
+                    width: "100%",
+                    height: "100%",
+                    fontSize: "0.7rem",
+                  }}
+                >
                   {t("for-teacher-register")}
-                </Link>
-              </Button>
+                </Button>
+              </Link>
             </div>
           </form>
         </Box>

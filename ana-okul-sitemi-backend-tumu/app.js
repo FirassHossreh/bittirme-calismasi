@@ -8,7 +8,7 @@ const i18n = require("./configs/i18n-config");
 const dataBaseConnection = require("./configs/dataBaseConnection");
 const languageMW = require("./middlewares/languageMW");
 /* import routes */
-const User = require("./routes/UserRouter");
+const User = require("./routes/authRouter");
 
 /* import routes */
 const app = express();
