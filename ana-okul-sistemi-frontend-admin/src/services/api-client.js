@@ -4,9 +4,6 @@ import { toast } from "react-toastify";
 import appSettings from "../config/app-settings.json";
 const apiClient = axios.create({
   baseURL: APP_DEVELOP_BASE_URL,
-  headers: {
-    "Content-Type": "application/json",
-  },
   withCredentials: true,
 });
 apiClient.interceptors.request.use((config) => {

@@ -13,7 +13,7 @@ export const teacherRegistrationSchema = (countryCode) => {
       .matches(/^[A-Za-z]+$/, "Sadece İngilizce harfler kabul edilir.")
       .matches(/^[^\d]+$/, "Rakamlar kabul edilmez.")
       .matches(/^[^!@#$%^&*(),.?":{}|<>]+$/, "Özel karakterler kabul edilmez."),
-    surname: yup
+    surName: yup
       .string()
       .required("Bu alan gereklidir.")
       .matches(/^[A-Za-z]+$/, "Sadece İngilizce harfler kabul edilir.")
@@ -31,7 +31,7 @@ export const teacherRegistrationSchema = (countryCode) => {
       .string()
       .required("Şifre tekrar girmek zorunludur")
       .oneOf([yup.ref("password")], "Şifreler eşleşmiyor"),
-    phoneNumber: yup
+    number: yup
       .string()
       .required("Telefon numarası girmek zorunludur")
       .matches(

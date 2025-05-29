@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const UserSchema = new mongoose.Schema(
+const ParentSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -18,12 +18,24 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    role: {
+    number: {
+      type: String,
+      required: true,
+    },
+    address: {
+      type: String,
+      required: true,
+    },
+    parentType: {
+      type: String,
+      required: true,
+    },
+    child: {
       type: String,
       required: true,
     },
   },
   { timestamps: true }
 );
-const UserModel = mongoose.model("Users", UserSchema);
-module.exports = UserModel;
+const ParentModel = mongoose.model("parents", ParentSchema);
+module.exports = ParentModel;

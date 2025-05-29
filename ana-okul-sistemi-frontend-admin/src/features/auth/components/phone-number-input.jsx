@@ -1,10 +1,13 @@
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import useLanguageOption from "../../../hooks/useLanguageOption";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { handlephoneCountryChange } from "../../../store/slices/phoneCountrySlice";
 export default function PhoneNumberInput({ value, name, onChange }) {
   const languageOption = useLanguageOption();
+  const selectedCountry = useSelector((state) => {
+    return state.phoneCountrySliceReducer.phoneCountrySlice;
+  });
   const dispatch = useDispatch();
   const handlePhoneChange = (value, country) => {
     dispatch(handlephoneCountryChange(country.countryCode));
@@ -24,6 +27,7 @@ export default function PhoneNumberInput({ value, name, onChange }) {
         searchStyle={{ width: "16rem" }}
         dropdownStyle={{ width: "16rem" }}
         onChange={handlePhoneChange}
+        value={value}
       />
     </div>
   );

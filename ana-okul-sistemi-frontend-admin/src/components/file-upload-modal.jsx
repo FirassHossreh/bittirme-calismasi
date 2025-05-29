@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Box, Button, Modal, Typography, Avatar, Stack } from "@mui/material";
 import { PhotoCamera } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
@@ -37,11 +37,20 @@ export default function FileUploadModal({
   };
 
   const handleUpload = () => {
-    // Burada dosyayı backend'e yollayabilirsin.
     console.log("Gönderilecek dosya:", file);
-    handleUploadParent(file.name);
-    handleClose(); // işlemler bitince modal'ı kapat
+    handleUploadParent(file);
+    handleClose();
   };
+
+  useEffect(() => {
+    console.log("photo value değişti:", value);
+    const isReset =
+      !value || typeof value === "string" || value instanceof File === false;
+    if (isReset) {
+      setFile(null);
+      setImagePreview(null);
+    }
+  }, [value]);
 
   return (
     <Box sx={{ textAlign: "center" }}>
@@ -108,11 +117,11 @@ export default function FileUploadModal({
             <input
               accept="image/*"
               style={{ display: "none" }}
-              id="uploadPhoto"
+              id="photo"
               type="file"
               onChange={handleFileChange}
             />
-            <label htmlFor="uploadPhoto">
+            <label htmlFor="photo">
               <Button
                 variant="outlined"
                 component="span"

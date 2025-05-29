@@ -9,6 +9,8 @@ import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import { teacherRegistrationSchema } from "../../features/auth/validations/teacher-registration-validation";
+import BirthDatePicker from "../../components/date-picker";
+import { teacherRegistrationService } from "../../features/auth/services/teacher-registration";
 export default function TeacherRegistration() {
   const { t } = useTranslation();
   const { secondaryColor, tertiaryColor } = useThemeColors();
@@ -17,13 +19,19 @@ export default function TeacherRegistration() {
     return state.phoneCountrySliceReducer.phoneCountrySlice;
   });
 
-  function handleUploadParent(fileName) {
-    setFileName(fileName);
+  function handleUploadParent(file) {
+    setFileName(file.name);
   }
-  function onSubmit(values, actions) {
-    console.log(values);
-    actions.resetForm();
-  }
+
+  const initialValues = {
+    name: "",
+    surName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    number: "",
+    photo: null,
+  };
   const {
     values,
     isSubmitting,
@@ -32,21 +40,34 @@ export default function TeacherRegistration() {
     validateForm,
     errors,
   } = useFormik({
-    initialValues: {
-      name: "",
-      surname: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-      phoneNumber: "",
-      uploadPhoto: "",
-    },
+    initialValues: initialValues,
     validationSchema: teacherRegistrationSchema(selectedCountry),
-    onSubmit,
+    onSubmit: onSubmit,
   });
+
   useEffect(() => {
     validateForm();
   }, [selectedCountry]);
+  async function onSubmit(values, actions) {
+    const formData = new FormData();
+    console.log(selectedCountry + "rdfsdafafddsfasfdsfd");
+    formData.append("name", values.name);
+    formData.append("surName", values.surName);
+    formData.append("email", values.email);
+    formData.append("password", values.password);
+    formData.append("number", values.number);
+    formData.append("countryCode", selectedCountry);
+    formData.append("photo", values.photo);
+    const result = await teacherRegistrationService(formData);
+    actions.resetForm({
+      values: {
+        ...initialValues,
+        number: selectedCountry === "sy" ? "963" : "90",
+      },
+    });
+    setFileName("");
+    console.log(actions);
+  }
   function handleclick() {
     console.log(values);
     console.log(errors);
@@ -69,12 +90,12 @@ export default function TeacherRegistration() {
             value={values.name}
           />
           <CustomInput
-            name={"surname"}
+            name={"surName"}
             label={t("surname")}
             placeholder={t("surname-place-holder")}
             variant={"surname"}
             onChange={handleChange}
-            value={values.surname}
+            value={values.surName}
           />
           <CustomInput
             name={"email"}
@@ -100,17 +121,18 @@ export default function TeacherRegistration() {
             onChange={handleChange}
             value={values.confirmPassword}
           />
+          <BirthDatePicker />
           <div className="flex flex-col gap-4 mt-4 ">
             <PhoneNumberInput
               onChange={handleChange}
-              value={values.phoneNumber}
-              name={"phoneNumber"}
+              value={values.number}
+              name={"number"}
             />
             <FileUploadModal
               handleUploadParent={handleUploadParent}
-              value={values.uploadPhoto}
+              value={values.photo}
               onChange={handleChange}
-              name={"uploadPhoto"}
+              name={"photo"}
             />
           </div>
           <p className="text-white text-sm w-64 text-center my-2 break-words whitespace-normal ">
@@ -125,9 +147,10 @@ export default function TeacherRegistration() {
               marginBottom: "2rem",
             }}
             type="submit"
+            disabled={isSubmitting}
             onClick={handleclick}
           >
-            {t("login")}
+            register
           </Button>
         </form>
       </div>
