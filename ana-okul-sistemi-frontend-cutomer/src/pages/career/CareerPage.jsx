@@ -1,4 +1,4 @@
-import HeaderForPages from "../../components/header-for-pages/HeaderForPages";
+import HeaderForPages from "../../components/header-for-pages";
 import CareerApplicationBox from "../../components/career-application-box/CareerApplicationBox";
 import "./careerPage.css";
 

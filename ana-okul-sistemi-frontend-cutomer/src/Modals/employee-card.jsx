@@ -1,7 +1,6 @@
-import React from "react";
 import { Box, Typography } from "@mui/material";
-import maleIcon from "../../assets/icons-for-gender/profile_3135715.png";
-import femaleIcon from "../../assets/icons-for-gender/image.png";
+import maleIcon from "./../assets/icons-for-gender/profile_3135715.png";
+import femaleIcon from "./../assets/icons-for-gender/image.png";
 const EmployeeCard = ({ image, name, position, email, gender }) => {
   const defaultImage = gender === "female" ? femaleIcon : maleIcon;
 

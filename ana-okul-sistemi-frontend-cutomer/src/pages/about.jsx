@@ -1,19 +1,19 @@
-import photoOfKindergarten from "../../assets/photo-of-kindergarten/Screenshot 2025-02-22 202947.png";
-import ContainerColumn from "../../components/container-column/ContainerColumn";
-import HeaderForPages from "../../components/header-for-pages/HeaderForPages";
-import EmployeeCard from "../../Modals/employee-box/EmployeeBox";
-import "./aboutUsPage.css";
+import photoOfKindergarten from "./../assets/photo-of-kindergarten/Screenshot 2025-02-22 202947.png";
+import ContainerColumn from "./../components/container-column";
+import HeaderForPages from "./../components/header-for-pages";
+import EmployeeCard from "../Modals/employee-card";
 
-export default function AboutPage() {
+export default function About() {
   return (
     <>
       <HeaderForPages>
-        <h1 className="about-title">Fanasan Okuluna Hosgeldiniz</h1>
+        <h1 className="text-white text-[2.5rem] p-5">
+          Fanasan Okuluna Hosgeldiniz
+        </h1>
       </HeaderForPages>
-
       <ContainerColumn>
-        <h3 className="who-are-we">Biz Kimiz ?</h3>
-        <p className="who-are-we-description">
+        <h3 className="text-3xl text-[#007bff] bg-white my-10">Biz Kimiz ?</h3>
+        <p className="text-xl text-[#374151] bg-white text-center mb-10">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
           optio iste dignissimos consequatur dolor corporis similique quia
           necessitatibus enim nobis minima est esse quod iure commodi
@@ -22,15 +22,15 @@ export default function AboutPage() {
           quaerat dicta, maiores nostrum sit deserunt sed tenetur harum delectus
           laborum consectetur, dolorem dolor nam eveniet cumque aspernatur.
         </p>
-      </ContainerColumn>
-      <ContainerColumn>
-        <div className="about-img-container">
-          <img src={photoOfKindergarten} alt="hata" />
+        <div className="w-[20rem] overflow-hidden rounded-[0.625rem] mb-10 xl:w-[40rem] lg:w-[40rem] 2xl:w-[40rem] ">
+          <img
+            src={photoOfKindergarten}
+            alt="hakkimizda-hata"
+            className="w-full transition duration-[750ms] hover:scale-[1.3]"
+          />
         </div>
-      </ContainerColumn>
-      <ContainerColumn>
-        <h1 className="our-administrators">idarecilerimiz</h1>
-        <div className="container-for-employees">
+        <h1 className="text-[#007bff] uppercase my-10">idarecilerimiz</h1>
+        <div className="w-full flex flex-wrap gap-[3.125rem] justify-center mt-10">
           <EmployeeCard
             name="firass"
             position={"hossreh"}
