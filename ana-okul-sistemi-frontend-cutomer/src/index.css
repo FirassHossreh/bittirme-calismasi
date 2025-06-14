@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @font-face {
   font-family: "Quicksand";
   src: url("../public//fonts/Quicksand/Quicksand-Light.ttf");
@@ -32,4 +35,3 @@
 :root {
   --primary-color: #00bfff;
 }
-

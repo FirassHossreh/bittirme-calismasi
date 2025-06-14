@@ -4,7 +4,7 @@ import "./registerLoginButtons.css";
 export default function RegisterLogin() {
   return (
     <>
-      <div className="register-login">
+      <div className="register-login hidden md:flex lg:flex xl:flex">
         <a href="" className="login">
           <FontAwesomeIcon icon={faSignInAlt} />
           <br />

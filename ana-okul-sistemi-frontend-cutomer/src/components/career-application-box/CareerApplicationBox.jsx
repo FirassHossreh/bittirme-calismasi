@@ -1,4 +1,3 @@
-import ContainerColumn from "../../components/container-column/ContainerColumn";
 import "./careerApplicationBox.css";
 //*********************************************************** */
 import * as React from "react";

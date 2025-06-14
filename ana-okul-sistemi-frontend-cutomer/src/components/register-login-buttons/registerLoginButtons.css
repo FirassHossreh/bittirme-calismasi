@@ -1,6 +1,6 @@
 .register-login {
   width: 20%;
-  display: flex;
+  /* display: flex; */
   justify-content: space-around;
   align-items: center;
 }
