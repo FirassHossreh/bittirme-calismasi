@@ -1,7 +1,3 @@
-import "./careerApplicationBox.css";
-//*********************************************************** */
-import * as React from "react";
-import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
@@ -82,7 +78,7 @@ export default function CareerApplicationBox({ children }) {
                     size="large"
                     style={{ backgroundColor: "#007bff" }}
                   >
-                    <Link to={"application-details"}>incele</Link>
+                    <Link to={"career-application-details"}>incele</Link>
                   </Button>
                 </TableCell>
                 <TableCell
@@ -97,7 +93,7 @@ export default function CareerApplicationBox({ children }) {
                     size="large"
                     style={{ backgroundColor: "#007bff" }}
                   >
-                    <Link to={"application"}>Basvur</Link>
+                    <Link to={"career-application"}>Basvur</Link>
                   </Button>
                 </TableCell>
               </TableRow>

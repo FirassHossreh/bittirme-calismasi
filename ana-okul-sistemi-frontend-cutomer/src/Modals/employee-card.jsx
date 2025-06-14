@@ -7,8 +7,7 @@ const EmployeeCard = ({ image, name, position, email, gender }) => {
   return (
     <Box
       sx={{
-        width: "23%",
-        minWidth: "300px",
+        width: "19rem",
         height: "400px",
         display: "flex",
         flexDirection: "column",

@@ -1,12 +1,11 @@
-import Footer from "../../components/footer";
-import Header from "../../components/header";
 import { Outlet } from "react-router-dom";
 import { useEffect } from "react";
-
-import "./appLayout.css";
-import Loader from "../../components/loader/Loader";
 import { useDispatch, useSelector } from "react-redux";
-import { setLoadin } from "../../store/slices/LoadingSlice";
+import Footer from "./../components/footer";
+import Header from "./../components/header";
+import Loader from "./../components/loader/Loader";
+import { setLoadin } from "./../store/slices/LoadingSlice";
+
 export default function AppLayout() {
   const loading = useSelector((state) => {
     return state.loadingReducer;
