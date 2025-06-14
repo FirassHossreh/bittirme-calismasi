@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Footer from "./../components/footer";
 import Header from "./../components/header";
-import Loader from "./../components/loader/Loader";
+import Loader from "./../components/loader";
 import { setLoadin } from "./../store/slices/LoadingSlice";
 
 export default function AppLayout() {

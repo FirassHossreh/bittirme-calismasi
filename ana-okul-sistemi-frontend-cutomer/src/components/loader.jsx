@@ -1,9 +1,8 @@
 import PuffLoader from "react-spinners/PuffLoader";
-import "./loader.css";
 export default function Loader() {
   return (
     <>
-      <div className="loader">
+      <div className="w-full h-[100vh] flex justify-center items-center">
         <PuffLoader color="#007bff" />
       </div>
     </>

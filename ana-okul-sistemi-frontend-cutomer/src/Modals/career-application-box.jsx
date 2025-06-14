@@ -73,13 +73,15 @@ export default function CareerApplicationBox({ children }) {
                 <TableCell style={styleForSecondRow}>{row.location}</TableCell>
                 <TableCell style={styleForSecondRow}>{row.status}</TableCell>
                 <TableCell style={styleForSecondRow}>
-                  <Button
-                    variant="contained"
-                    size="large"
-                    style={{ backgroundColor: "#007bff" }}
-                  >
-                    <Link to={"career-application-details"}>incele</Link>
-                  </Button>
+                  <Link to={"career-application-details"}>
+                    <Button
+                      variant="contained"
+                      size="large"
+                      style={{ backgroundColor: "#007bff" }}
+                    >
+                      incele
+                    </Button>
+                  </Link>
                 </TableCell>
                 <TableCell
                   sx={{
@@ -88,13 +90,15 @@ export default function CareerApplicationBox({ children }) {
                     textAlign: "center",
                   }}
                 >
-                  <Button
-                    variant="contained"
-                    size="large"
-                    style={{ backgroundColor: "#007bff" }}
-                  >
-                    <Link to={"career-application"}>Basvur</Link>
-                  </Button>
+                  <Link to={"career-application"}>
+                    <Button
+                      variant="contained"
+                      size="large"
+                      style={{ backgroundColor: "#007bff" }}
+                    >
+                      Basvur
+                    </Button>
+                  </Link>
                 </TableCell>
               </TableRow>
             ))}

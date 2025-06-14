@@ -16,7 +16,6 @@ import {
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "./logo";
-import RegisterLogin from "./register-login-buttons/RegisterLoginButtons";
 export default function Header() {
   const [tabsUnderCorporateDisplay, setTabsUnderCorporateDisplay] =
     useState("none");
@@ -35,9 +34,9 @@ export default function Header() {
             onClick={() => setOpenBurgerMenu((prev) => !prev)}
           />
         </div>
-        <div className="hidden w-full sm:flex md:flex lg:flex xl:flex bg-white mx-auto text-[#85c1ff] ">
+        <div className="hidden w-full sm:flex md:flex lg:flex xl:flex bg-white mx-auto text-[#85c1ff]">
           <Logo />
-          <div className="w-[60%]  items-center relative hidden sm:flex md:flex lg:flex xl:flex">
+          <div className="w-[80%] items-center relative hidden sm:flex md:flex lg:flex xl:flex">
             <div className="w-full h-full flex items-center">
               <Link
                 to="/home"
@@ -93,6 +92,22 @@ export default function Header() {
                 <br />
                 Iletisim
               </a>
+              <a
+                href=""
+                className="no-underline w-[calc(100%/6)] h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
+              >
+                <FontAwesomeIcon icon={faSignInAlt} />
+                <br />
+                Login
+              </a>
+              <a
+                href=""
+                className="no-underline w-[calc(100%/6)] h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
+              >
+                <FontAwesomeIcon icon={faUserPlus} />
+                <br />
+                Register
+              </a>
             </div>
             <div
               className="absolute left-[123px] top-[100px] z-[2000] bg-white flex flex-col"
@@ -133,19 +148,6 @@ export default function Header() {
               </Link>
             </div>
           </div>
-          {/* <div className="register-login hidden md:flex lg:flex xl:flex">
-            <a href="" className="login">
-              <FontAwesomeIcon icon={faSignInAlt} />
-              <br />
-              login
-            </a>
-            <a href="" className="register">
-              <FontAwesomeIcon icon={faUserPlus} />
-              <br />
-              register
-            </a>
-          </div> */}
-          <RegisterLogin />
         </div>
         {/* Mobile Burger Menü Yan Panel + Overlay */}
         {openBurgerMenu && (
@@ -229,6 +231,22 @@ export default function Header() {
               >
                 <FontAwesomeIcon icon={faEnvelope} />
                 <span>Iletisim</span>
+              </a>
+              <a
+                href=""
+                className="flex items-center space-x-2 text-[#007bff] hover:bg-[#007bff] hover:text-white p-3 rounded transition duration-300"
+                onClick={() => setOpenBurgerMenu(false)}
+              >
+                <FontAwesomeIcon icon={faSignInAlt} />
+                <span>Login</span>
+              </a>
+              <a
+                href=""
+                className="flex items-center space-x-2 text-[#007bff] hover:bg-[#007bff] hover:text-white p-3 rounded transition duration-300"
+                onClick={() => setOpenBurgerMenu(false)}
+              >
+                <FontAwesomeIcon icon={faUserPlus} />
+                <span>Register</span>
               </a>
             </nav>
           </>
