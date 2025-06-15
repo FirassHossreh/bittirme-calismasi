@@ -6,7 +6,7 @@ const {
   employeeLoginValidation,
 } = require("../../utils/validations/employeeLoginValidation");
 
-const login = asyncHandler(async (req, res) => {
+const employeeLogin = asyncHandler(async (req, res) => {
   const { error } = employeeLoginValidation(req.body);
   if (error) {
     return res.status(400).json({ msg: error.details[0].message });
@@ -42,4 +42,4 @@ const login = asyncHandler(async (req, res) => {
   });
   return res.status(200).json({ message: req.__("login_success") });
 });
-module.exports = { login };
+module.exports = { employeeLogin };

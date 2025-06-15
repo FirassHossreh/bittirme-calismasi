@@ -1,8 +1,9 @@
 const express = require("express");
 const multer = require("multer");
 const path = require("path");
+const { parentLogin } = require("../controller/auth/parentLoginController");
 
-const { login } = require("../controller/auth/employeeLoginController");
+const { employeeLogin } = require("../controller/auth/employeeLoginController");
 const {
   employeeRegister,
 } = require("../controller/auth/employeeRegisterController");
@@ -34,7 +35,9 @@ const upload = multer({ storage: storage });
 router
   .route("/employee-register")
   .post(upload.single("photo"), employeeRegister);
-router.route("/employee-login").post(login);
+router.route("/employee-login").post(employeeLogin);
+router.route("/parent-login").post(parentLogin);
+
 router.route("/is-authenticated").get(IsAuthenticated);
 router.route("/remove-token").get(removeToken);
 module.exports = router;
