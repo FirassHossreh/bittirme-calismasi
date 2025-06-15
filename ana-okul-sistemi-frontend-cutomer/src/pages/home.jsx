@@ -126,7 +126,7 @@ export default function Home() {
           </h1>
           <hr className="my-[50px] w-[80%] h-[2px] border-none bg-[#f1f1f1]" />
         </div>
-        <div className="flex flex-wrap w-4/5 mx-auto">
+        <div className="flex flex-wrap justify-center w-4/5 mx-auto">
           <NewsBox />
           <NewsBox />
           <NewsBox />

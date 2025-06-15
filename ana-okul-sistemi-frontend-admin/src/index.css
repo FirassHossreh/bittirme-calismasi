@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+input::-ms-reveal {
+  display: none;
+}
 @font-face {
   font-family: "Quicksand";
   src: url("../public//fonts/Quicksand/Quicksand-Light.ttf");

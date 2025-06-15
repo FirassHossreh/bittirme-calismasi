@@ -8,7 +8,7 @@ export default function NewsBox() {
   return (
     <div
       className={`
-    w-64 m-[20px] bg-[#e3f2fd] rounded-[4px] transition-all duration-1000 ease-in-out flex flex-wrap
+    w-60 m-[20px] bg-[#e3f2fd] rounded-[4px] transition-all duration-1000 ease-in-out flex flex-wrap
     hover:scale-110 
     ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[50px]"}
   `}

@@ -92,22 +92,22 @@ export default function Header() {
                 <br />
                 Iletisim
               </a>
-              <a
-                href=""
+              <Link
+                to="login"
                 className="no-underline w-[calc(100%/6)] h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
               >
                 <FontAwesomeIcon icon={faSignInAlt} />
                 <br />
-                Login
-              </a>
-              <a
-                href=""
+                Giriş
+              </Link>
+              <Link
+                to="register"
                 className="no-underline w-[calc(100%/6)] h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
               >
                 <FontAwesomeIcon icon={faUserPlus} />
                 <br />
-                Register
-              </a>
+                Kayd olma
+              </Link>
             </div>
             <div
               className="absolute left-[123px] top-[100px] z-[2000] bg-white flex flex-col"
@@ -232,22 +232,22 @@ export default function Header() {
                 <FontAwesomeIcon icon={faEnvelope} />
                 <span>Iletisim</span>
               </a>
-              <a
-                href=""
+              <Link
+                to="login"
                 className="flex items-center space-x-2 text-[#007bff] hover:bg-[#007bff] hover:text-white p-3 rounded transition duration-300"
                 onClick={() => setOpenBurgerMenu(false)}
               >
                 <FontAwesomeIcon icon={faSignInAlt} />
                 <span>Login</span>
-              </a>
-              <a
-                href=""
+              </Link>
+              <Link
+                to="register"
                 className="flex items-center space-x-2 text-[#007bff] hover:bg-[#007bff] hover:text-white p-3 rounded transition duration-300"
                 onClick={() => setOpenBurgerMenu(false)}
               >
                 <FontAwesomeIcon icon={faUserPlus} />
                 <span>Register</span>
-              </a>
+              </Link>
             </nav>
           </>
         )}
