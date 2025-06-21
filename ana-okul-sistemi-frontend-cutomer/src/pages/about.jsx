@@ -14,13 +14,16 @@ export default function About() {
       <ContainerColumn>
         <h3 className="text-3xl text-[#007bff] bg-white my-10">Biz Kimiz ?</h3>
         <p className="text-xl text-[#374151] bg-white text-center mb-10">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-          optio iste dignissimos consequatur dolor corporis similique quia
-          necessitatibus enim nobis minima est esse quod iure commodi
-          accusantium, quibusdam dolores possimus? Lorem ipsum dolor sit amet
-          consectetur, adipisicing elit. Quibusdam debitis qui consequatur
-          quaerat dicta, maiores nostrum sit deserunt sed tenetur harum delectus
-          laborum consectetur, dolorem dolor nam eveniet cumque aspernatur.
+          Biz, İstanbul’un Beylikdüzü ilçesinde çocukların güvenle öğrenip
+          gelişebileceği bir ortam sunmak amacıyla yola çıkan bir anaokuluyuz.
+          Amacımız; çocuklarımızın sadece akademik değil, aynı zamanda duygusal,
+          sosyal ve fiziksel olarak da desteklenmesini sağlamak. Sevgi dolu bir
+          atmosferde, oyun temelli eğitim anlayışıyla miniklerimizin
+          yaratıcılığını, merakını ve özgüvenini geliştiriyoruz. Modern eğitim
+          yaklaşımlarını benimseyen, deneyimli ve özverili kadromuzla birlikte,
+          çocuklarımız için ikinci bir yuva olmayı hedefliyoruz. Beylikdüzü’nde
+          açtığımız bu özel eğitim kurumu ile geleceğin mutlu ve bilinçli
+          bireylerini yetiştirmeye katkı sunmaktan gurur duyuyoruz.
         </p>
         <div className="w-[20rem] overflow-hidden rounded-[0.625rem] mb-10 xl:w-[40rem] lg:w-[40rem] 2xl:w-[40rem] ">
           <img
@@ -34,7 +37,6 @@ export default function About() {
           <EmployeeCard
             name="firass"
             position={"hossreh"}
-            image={photoOfKindergarten}
             email={"firass.hus@gmail.com"}
             gender={"male"}
           />

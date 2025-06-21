@@ -22,13 +22,15 @@ export default function NewsBox() {
         />
       </div>
       <div className="p-5 text-[#007bff]">
-        <h3>duyrunun basligi burada yazilir databaseten gelmesi lazim</h3>
+        <h3>Yaz Etkinlikleri Başlıyor!</h3>
         <br />
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit
-          repellat eligendi accusantium consequuntur voluptatibus aut
-          consectetur! Quisquam consectetur dolor ad reprehenderit adipisci?
-          Iusto, numquam at sed molestiae ducimus doloremque praesentium!
+          Sevgili veliler ve sevgili minikler, Yaz aylarını daha eğlenceli ve
+          öğretici geçirmek için anaokulumuzda renkli ve yaratıcı yaz
+          etkinlikleri başlıyor! Oyunlar, sanat atölyeleri, doğa yürüyüşleri ve
+          eğlenceli aktivitelerle dolu dolu bir yaz bizleri bekliyor. Katılım
+          için lütfen en geç haftaya kadar öğretmenlerimizle iletişime geçiniz.
+          Hep birlikte keyifli bir yaz geçirelim!
         </p>
       </div>
     </div>

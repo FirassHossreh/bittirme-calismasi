@@ -80,7 +80,7 @@ export default function TeacherRegistration() {
           style={{ backgroundColor: "#007BFF" }}
           onSubmit={handleSubmit}
         >
-          <FormTitle title={t("teacher-register")} />
+          <FormTitle title={"Personel Kaydı"} />
           <CustomInput
             name={"name"}
             label={t("name")}
@@ -118,6 +118,14 @@ export default function TeacherRegistration() {
             label={t("repeat-password")}
             placeholder={t("repeat-password-place-holder")}
             variant={"password"}
+            onChange={handleChange}
+            value={values.confirmPassword}
+          />
+          <CustomInput
+            name={"confirmPassword"}
+            label={"Kayıt Türü"}
+            placeholder={"Kayıt Türü"}
+            variant={"permation"}
             onChange={handleChange}
             value={values.confirmPassword}
           />

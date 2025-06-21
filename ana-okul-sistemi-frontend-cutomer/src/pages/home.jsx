@@ -16,35 +16,35 @@ import NewsBox from "../Modals/news-box";
 import VMTBox from "../Modals/vmt-box";
 const ourCoreValues = [
   {
-    title: `Nurturing Care`,
-    subTitle: `Creating a loving and supportive environment where every childfeels safe and valued`,
+    title: `Şefkatli Bakım`,
+    subTitle: `Her çocuğun kendini güvende ve değerli hissettiği sevgi dolu ve destekleyici bir ortam yaratmak.`,
     icon: faHeart,
   },
   {
-    title: `Excellence`,
-    subTitle: `Committed to providing the highest quality early childhood education`,
+    title: `Mükemmeliyet`,
+    subTitle: `En yüksek kalitede erken çocukluk eğitimi sunmaya kararlıyız.`,
     icon: faStar,
   },
   {
-    title: `Growth`,
-    subTitle: `Fostering development through play-based learning and exploration`,
+    title: `Gelişim`,
+    subTitle: `Oyun temelli öğrenme ve keşif yoluyla gelişimi desteklemek.`,
     icon: faSun,
   },
 ];
 const whyChooseUs = [
   {
-    title: `Small Class Sizes`,
-    subTitle: `Ensuring individual attention for each child's unique needs`,
+    title: `Küçük Sınıf Mevcudu`,
+    subTitle: `Her çocuğun özel ihtiyaçlarına bireysel ilgi gösterilmesini sağlamak.`,
     icon: faUsers,
   },
   {
-    title: `Enriching Curriculum`,
-    subTitle: `Balanced program focusing on academic and social development`,
+    title: `Zenginleştirilmiş Müfredat`,
+    subTitle: `Akademik ve sosyal gelişime odaklanan dengeli bir program.`,
     icon: faBookOpen,
   },
   {
-    title: `Creative Expression`,
-    subTitle: `Daily activities that spark imagination and creativity`,
+    title: `Yaratıcılığı Canlandıran Aktiviteler`,
+    subTitle: `Hayal gücünü ve yaratıcılığı uyandıran günlük aktiviteler`,
     icon: faPalette,
   },
 ];

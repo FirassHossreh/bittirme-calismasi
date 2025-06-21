@@ -12,6 +12,8 @@ import {
   faBars,
   faSignInAlt,
   faUserPlus,
+  faUser,
+  faComments,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -59,39 +61,39 @@ export default function Header() {
                 <br />
                 Kurumsal
               </div>
-              <a
-                href=""
+              <Link
+                to="services"
                 className="no-underline w-[calc(100%/6)] h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
               >
                 <FontAwesomeIcon icon={faBook} />
                 <br />
                 Hizmetler
-              </a>
-              <a
-                href=""
+              </Link>
+              <Link
+                to="education-program"
                 className="no-underline w-[calc(100%/6)] h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
               >
                 <FontAwesomeIcon icon={faGraduationCap} />
                 <br />
                 Egitim Program
-              </a>
-              <a
-                href=""
+              </Link>
+              <Link
+                to="gallery"
                 className="no-underline w-[calc(100%/6)] h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
               >
                 <FontAwesomeIcon icon={faPhotoFilm} />
                 <br />
                 Galeri
-              </a>
+              </Link>
 
-              <a
-                href=""
+              <Link
+                to="contact"
                 className="no-underline w-[calc(100%/6)] h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
               >
                 <FontAwesomeIcon icon={faEnvelope} />
                 <br />
                 Iletisim
-              </a>
+              </Link>
               <Link
                 to="login"
                 className="no-underline w-[calc(100%/6)] h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
@@ -106,7 +108,7 @@ export default function Header() {
               >
                 <FontAwesomeIcon icon={faUserPlus} />
                 <br />
-                Kayd olma
+                Kayıt Olma
               </Link>
             </div>
             <div
@@ -200,38 +202,38 @@ export default function Header() {
               </div>
 
               {/* Diğer menü öğeleri */}
-              <a
-                href=""
+              <Link
+                to={"services"}
                 className="flex items-center space-x-2 text-[#007bff] hover:bg-[#007bff] hover:text-white p-3 rounded transition duration-300"
                 onClick={() => setOpenBurgerMenu(false)}
               >
                 <FontAwesomeIcon icon={faBook} />
                 <span>Hizmetler</span>
-              </a>
-              <a
-                href=""
+              </Link>
+              <Link
+                to="education-program"
                 className="flex items-center space-x-2 text-[#007bff] hover:bg-[#007bff] hover:text-white p-3 rounded transition duration-300"
                 onClick={() => setOpenBurgerMenu(false)}
               >
                 <FontAwesomeIcon icon={faGraduationCap} />
                 <span>Egitim Program</span>
-              </a>
-              <a
-                href=""
+              </Link>
+              <Link
+                to="gallery"
                 className="flex items-center space-x-2 text-[#007bff] hover:bg-[#007bff] hover:text-white p-3 rounded transition duration-300"
                 onClick={() => setOpenBurgerMenu(false)}
               >
                 <FontAwesomeIcon icon={faPhotoFilm} />
                 <span>Galeri</span>
-              </a>
-              <a
-                href=""
+              </Link>
+              <Link
+                to="contact"
                 className="flex items-center space-x-2 text-[#007bff] hover:bg-[#007bff] hover:text-white p-3 rounded transition duration-300"
                 onClick={() => setOpenBurgerMenu(false)}
               >
                 <FontAwesomeIcon icon={faEnvelope} />
                 <span>Iletisim</span>
-              </a>
+              </Link>
               <Link
                 to="login"
                 className="flex items-center space-x-2 text-[#007bff] hover:bg-[#007bff] hover:text-white p-3 rounded transition duration-300"

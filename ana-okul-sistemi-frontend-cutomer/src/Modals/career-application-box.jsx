@@ -22,13 +22,13 @@ const styleForSecondRow = {
   whiteSpace: "normal",
   height: "auto",
 };
-export default function CareerApplicationBox({ children }) {
+export default function CareerApplicationBox({ children, jobPost }) {
   const rows = [
     {
-      position: "Anaokulu Öğretmeni ",
-      date: "2024-02-25",
-      location: "İstanbul/beylikduzu",
-      status: "Açık",
+      position: jobPost.jobTitle,
+      date: jobPost.createdAt.split("T")[0],
+      location: jobPost.location,
+      status: jobPost.status ? "Açık" : "Doldu",
       details: "Application detail",
       apply: "Başvur",
     },
@@ -46,7 +46,7 @@ export default function CareerApplicationBox({ children }) {
                 Pozisyon
               </TableCell>
               <TableCell style={styleforFirstRow}>Açılma Tarihi</TableCell>
-              <TableCell style={styleforFirstRow}>Lokasyon</TableCell>
+              <TableCell style={styleforFirstRow}>Konum</TableCell>
               <TableCell style={styleforFirstRow}>Durum</TableCell>
               <TableCell style={styleforFirstRow}>Basvuru detayi</TableCell>
               <TableCell
@@ -73,7 +73,7 @@ export default function CareerApplicationBox({ children }) {
                 <TableCell style={styleForSecondRow}>{row.location}</TableCell>
                 <TableCell style={styleForSecondRow}>{row.status}</TableCell>
                 <TableCell style={styleForSecondRow}>
-                  <Link to={"career-application-details"}>
+                  <Link to={`career-application-details/${jobPost._id}`}>
                     <Button
                       variant="contained"
                       size="large"
@@ -90,7 +90,7 @@ export default function CareerApplicationBox({ children }) {
                     textAlign: "center",
                   }}
                 >
-                  <Link to={"career-application"}>
+                  <Link to={`career-application/${jobPost._id}`}>
                     <Button
                       variant="contained"
                       size="large"
