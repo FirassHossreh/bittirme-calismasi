@@ -13,7 +13,7 @@ const { tokenDecode } = require("./middlewares/token-decode");
 /* import routes */
 const JobPost = require("./routes/jobPostRoute");
 const User = require("./routes/authRoute");
-
+const CutomerContact = require("./routes/customerContactRoute");
 /* import routes */
 const app = express();
 dotenv.config();
@@ -41,6 +41,7 @@ app.use(languageMW);
 app.use("/api/v1/kindergarten/auth", User);
 app.use("/api/v1/kindergarten/authorization", checkTokenExists, tokenDecode);
 app.use("/api/v1/kindergarten", JobPost);
+app.use("/api/v1/kindergarten", CutomerContact);
 PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`the server listening of ${PORT} port`);

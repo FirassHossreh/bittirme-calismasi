@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   faEnvelope,
   faPhone,
@@ -6,24 +5,32 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import HeaderForPages from "../components/header-for-pages";
+import { useFormik } from "formik";
+import { contactValdiation } from "../validations/contact-validation";
+import { sendEmailService } from "../services/send-email/send-email-service";
+import { useState } from "react";
+import { toast } from "react-toastify";
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [submitted, setSubmitted] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
-  };
-
+  const { handleSubmit, values, handleChange, isSubmitting, errors, touched } =
+    useFormik({
+      initialValues: {
+        nameAndSurname: "",
+        email: "",
+        description: "",
+      },
+      validationSchema: contactValdiation,
+      onSubmit: handleOnSubmitForm,
+    });
+  async function handleOnSubmitForm(values, actions) {
+    const response = await sendEmailService(values);
+    setTimeout(() => {
+      setShowSuccessMessage(false);
+    }, 3000);
+    actions.resetForm();
+  }
+  console.log(isSubmitting);
   return (
     <>
       <HeaderForPages>
@@ -82,60 +89,84 @@ export default function Contact() {
             className="bg-[#007BFF] p-6 rounded-xl shadow-md text-white"
           >
             <div className="mb-4">
-              <label htmlFor="name" className="block mb-1 font-semibold">
+              <label
+                htmlFor="nameAndSurname"
+                className="block mb-1 font-semibold"
+              >
                 Ad Soyad
               </label>
               <input
                 type="text"
-                id="name"
-                name="name"
-                value={formData.name}
+                id="nameAndSurname"
+                name="nameAndSurname"
+                value={values.nameAndSurname}
                 onChange={handleChange}
-                required
                 className="w-full p-2 rounded text-black"
+                style={
+                  touched.nameAndSurname && errors.nameAndSurname
+                    ? { border: "2px red solid" }
+                    : {}
+                }
               />
+              <p className="text-red-500 font-bold">
+                {touched.nameAndSurname && errors.nameAndSurname
+                  ? errors.nameAndSurname
+                  : ""}
+              </p>
             </div>
             <div className="mb-4">
               <label htmlFor="email" className="block mb-1 font-semibold">
                 Email
               </label>
               <input
-                type="email"
+                type="text"
                 id="email"
                 name="email"
-                value={formData.email}
+                value={values.email}
                 onChange={handleChange}
-                required
                 className="w-full p-2 rounded text-black"
+                style={
+                  touched.email && errors.email
+                    ? { border: "2px red solid" }
+                    : {}
+                }
               />
+              <p className="text-red-500 font-bold">
+                {touched.email && errors.email ? errors.email : ""}
+              </p>
             </div>
             <div className="mb-4">
-              <label htmlFor="message" className="block mb-1 font-semibold">
+              <label htmlFor="description" className="block mb-1 font-semibold">
                 Mesaj
               </label>
               <textarea
-                id="message"
-                name="message"
-                value={formData.message}
+                id="description"
+                name="description"
+                value={values.description}
                 onChange={handleChange}
-                required
-                className="w-full p-2 rounded text-black"
+                className={`w-full p-2 rounded text-black `}
+                style={
+                  touched.description && errors.description
+                    ? { border: "2px red solid" }
+                    : {}
+                }
                 rows="4"
               />
+              <p className="text-red-500 font-bold">
+                {touched.description && errors.description
+                  ? errors.description
+                  : ""}
+              </p>
             </div>
             <div className="w-ful flex justify-end">
               <button
                 type="submit"
                 className="bg-white text-[#007BFF] font-semibold px-4 py-2 rounded hover:bg-gray-100 "
+                disabled={isSubmitting}
               >
                 Gönder
               </button>
             </div>
-            {submitted && (
-              <p className="mt-4 text-white">
-                Mesajınız gönderildi, teşekkür ederiz.
-              </p>
-            )}
           </form>
         </div>
       </div>

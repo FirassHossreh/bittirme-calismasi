@@ -1,7 +1,7 @@
 import HeaderForPages from "./../components/header-for-pages";
 import CareerApplicationBox from "../Modals/career-application-box";
 import { useEffect } from "react";
-import { getJobPostsService } from "../services/get-job-posts";
+import { getJobPostsService } from "../services/job-posts/get-job-posts-service";
 import { useState } from "react";
 
 export default function Career() {
@@ -13,7 +13,6 @@ export default function Career() {
     }
     getJobPosts();
   }, []);
-  console.log(jobPosts);
   return (
     <div className="min-h-screen">
       <HeaderForPages>

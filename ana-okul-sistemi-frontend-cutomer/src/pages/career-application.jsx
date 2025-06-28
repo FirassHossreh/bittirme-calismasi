@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getJobPostService } from "../services/get-job-post";
+import { getJobPostService } from "../services/job-posts/get-job-post-service";
 export default function CareerApplication() {
   const { id } = useParams();
   const [job, setJob] = useState(null);
