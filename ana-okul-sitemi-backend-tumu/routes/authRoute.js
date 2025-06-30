@@ -7,10 +7,13 @@ const { employeeLogin } = require("../controller/auth/employeeLoginController");
 const {
   employeeRegister,
 } = require("../controller/auth/employeeRegisterController");
+const { IsAuthenticated } = require("../controller/UserController");
+const { getParentData } = require("../controller/auth/getParentData");
+const { isAuthenticated } = require("../controller/auth/isAuthenticated");
+const { removeToken } = require("../controller/auth/removeToken");
 const {
-  IsAuthenticated,
-  removeToken,
-} = require("../controller/UserController");
+  parentRegister,
+} = require("../controller/auth/parentRegisterController");
 const router = express.Router();
 
 const uploadPath = path.join(__dirname, "../uploads");
@@ -37,7 +40,10 @@ router
   .post(upload.single("photo"), employeeRegister);
 router.route("/employee-login").post(employeeLogin);
 router.route("/parent-login").post(parentLogin);
+router.route("/parent-register").post(parentRegister);
 
 router.route("/is-authenticated").get(IsAuthenticated);
 router.route("/remove-token").get(removeToken);
+router.route("/get-parent-data").get(getParentData);
+router.route("/is-authenticated-new").get(isAuthenticated);
 module.exports = router;

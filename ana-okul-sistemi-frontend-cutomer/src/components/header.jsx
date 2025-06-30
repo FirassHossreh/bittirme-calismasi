@@ -13,11 +13,14 @@ import {
   faSignInAlt,
   faUserPlus,
   faUser,
+  faFileSignature,
   faComments,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "./logo";
+import { useSelector } from "react-redux";
+import {} from "../store/slices/isAuthenticatedSlice";
 export default function Header() {
   const [tabsUnderCorporateDisplay, setTabsUnderCorporateDisplay] =
     useState("none");
@@ -25,6 +28,8 @@ export default function Header() {
   const handleOverlayClick = () => {
     setOpenBurgerMenu(false);
   };
+
+  const isAuth = useSelector((state) => state.authSliceReducer.isAuthenticated);
   return (
     <>
       <header className="w-[80%] flex bg-white mx-auto text-[#85c1ff] ">
@@ -38,18 +43,18 @@ export default function Header() {
         </div>
         <div className="hidden w-full sm:flex md:flex lg:flex xl:flex bg-white mx-auto text-[#85c1ff]">
           <Logo />
-          <div className="w-[80%] items-center relative hidden sm:flex md:flex lg:flex xl:flex">
+          <div className="w-[80%] items-center relative hidden sm:flex md:flex lg:flex xl:flex ">
             <div className="w-full h-full flex items-center">
               <Link
                 to="/home"
-                className="no-underline w-[calc(100%/6)] h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
+                className="no-underline w-56 h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
               >
                 <FontAwesomeIcon icon={faHouse} />
                 <br />
                 Ana Sayfa
               </Link>
               <div
-                className="no-underline w-[calc(100%/6)] h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
+                className="no-underline w-56 h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
                 onMouseEnter={() => {
                   setTabsUnderCorporateDisplay("block");
                 }}
@@ -63,7 +68,7 @@ export default function Header() {
               </div>
               <Link
                 to="services"
-                className="no-underline w-[calc(100%/6)] h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
+                className="no-underline w-56 h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
               >
                 <FontAwesomeIcon icon={faBook} />
                 <br />
@@ -71,15 +76,15 @@ export default function Header() {
               </Link>
               <Link
                 to="education-program"
-                className="no-underline w-[calc(100%/6)] h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
+                className="no-underline w-56 h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
               >
                 <FontAwesomeIcon icon={faGraduationCap} />
                 <br />
-                Egitim Program
+                <p className="text-sm"> Egitim Program</p>
               </Link>
               <Link
                 to="gallery"
-                className="no-underline w-[calc(100%/6)] h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
+                className="no-underline w-56 h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
               >
                 <FontAwesomeIcon icon={faPhotoFilm} />
                 <br />
@@ -88,28 +93,59 @@ export default function Header() {
 
               <Link
                 to="contact"
-                className="no-underline w-[calc(100%/6)] h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
+                className="no-underline w-56 h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
               >
                 <FontAwesomeIcon icon={faEnvelope} />
                 <br />
                 Iletisim
               </Link>
-              <Link
-                to="login"
-                className="no-underline w-[calc(100%/6)] h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
-              >
-                <FontAwesomeIcon icon={faSignInAlt} />
-                <br />
-                Giriş
-              </Link>
-              <Link
-                to="register"
-                className="no-underline w-[calc(100%/6)] h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
-              >
-                <FontAwesomeIcon icon={faUserPlus} />
-                <br />
-                Kayıt Olma
-              </Link>
+              {!isAuth ? (
+                <>
+                  <Link
+                    to="login"
+                    className="no-underline w-56 h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
+                  >
+                    <FontAwesomeIcon icon={faSignInAlt} />
+                    <br />
+                    Giriş
+                  </Link>
+                  <Link
+                    to="register"
+                    className="no-underline w-56 h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
+                  >
+                    <FontAwesomeIcon icon={faUserPlus} />
+                    <br />
+                    Kayıt Olma
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to="child-registration-application"
+                    className="no-underline w-56 h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
+                  >
+                    <FontAwesomeIcon icon={faFileSignature} />
+                    <br />
+                    Basvuru
+                  </Link>
+                  <Link
+                    to="profile"
+                    className="no-underline w-56 h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
+                  >
+                    <FontAwesomeIcon icon={faUser} />
+                    <br />
+                    Profile
+                  </Link>
+                  <Link
+                    to="chat"
+                    className="no-underline w-56 h-full flex justify-center items-center flex-col text-[#007bff] transition duration-500 hover:bg-[#007bff] hover:text-white"
+                  >
+                    <FontAwesomeIcon icon={faComments} />
+                    <br />
+                    Chat
+                  </Link>
+                </>
+              )}
             </div>
             <div
               className="absolute left-[123px] top-[100px] z-[2000] bg-white flex flex-col"

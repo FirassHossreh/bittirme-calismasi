@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import PrivateRoute from "./private-route";
 import AppLayout from "../layouts/app-layout";
 import Home from "../pages/home";
 import About from "../pages/about";
@@ -12,6 +13,9 @@ import Services from "../pages/services";
 import EducationProgram from "../pages/education-program";
 import Gallery from "../pages/gallery";
 import Contact from "../pages/contact";
+import ChildRegistrationApplication from "../pages/child-registration-application";
+import Profile from "../pages/profile";
+import Chat from "../pages/chat";
 export default function AppRoutes({ children }) {
   return (
     <>
@@ -36,8 +40,17 @@ export default function AppRoutes({ children }) {
           <Route path="education-program" element={<EducationProgram />} />
           <Route path="gallery" element={<Gallery />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="register" element={<Register />} />
+
+          <Route element={<PrivateRoute />}>
+            <Route
+              path="child-registration-application"
+              element={<ChildRegistrationApplication />}
+            />
+            <Route path="profile" element={<Profile />} />
+            <Route path="chat" element={<Chat />} />
+          </Route>
         </Route>
+        <Route path="register" element={<Register />} />
         <Route path="/login" element={<Login />} />
       </Routes>
       {children}

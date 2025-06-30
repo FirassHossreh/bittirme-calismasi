@@ -8,11 +8,7 @@ import HeaderForPages from "../components/header-for-pages";
 import { useFormik } from "formik";
 import { contactValdiation } from "../validations/contact-validation";
 import { sendEmailService } from "../services/send-email/send-email-service";
-import { useState } from "react";
-import { toast } from "react-toastify";
 export default function Contact() {
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-
   const { handleSubmit, values, handleChange, isSubmitting, errors, touched } =
     useFormik({
       initialValues: {
@@ -24,13 +20,9 @@ export default function Contact() {
       onSubmit: handleOnSubmitForm,
     });
   async function handleOnSubmitForm(values, actions) {
-    const response = await sendEmailService(values);
-    setTimeout(() => {
-      setShowSuccessMessage(false);
-    }, 3000);
+    await sendEmailService(values);
     actions.resetForm();
   }
-  console.log(isSubmitting);
   return (
     <>
       <HeaderForPages>

@@ -11,9 +11,10 @@ const { checkTokenExists } = require("./middlewares/check-token-exists");
 const { tokenDecode } = require("./middlewares/token-decode");
 
 /* import routes */
-const JobPost = require("./routes/jobPostRoute");
-const User = require("./routes/authRoute");
-const CutomerContact = require("./routes/customerContactRoute");
+const JobPostRoute = require("./routes/jobPostRoute");
+const AuthRoute = require("./routes/authRoute");
+const CutomerContactRoute = require("./routes/customerContactRoute");
+const authorizationRoute = require("./routes/protectedRoute");
 /* import routes */
 const app = express();
 dotenv.config();
@@ -38,10 +39,15 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(i18n.init);
 app.use(languageMW);
-app.use("/api/v1/kindergarten/auth", User);
-app.use("/api/v1/kindergarten/authorization", checkTokenExists, tokenDecode);
-app.use("/api/v1/kindergarten", JobPost);
-app.use("/api/v1/kindergarten", CutomerContact);
+app.use("/api/v1/kindergarten/auth", AuthRoute);
+app.use(
+  "/api/v1/kindergarten/authorization",
+  checkTokenExists,
+  tokenDecode,
+  authorizationRoute
+);
+app.use("/api/v1/kindergarten", JobPostRoute);
+app.use("/api/v1/kindergarten", CutomerContactRoute);
 PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`the server listening of ${PORT} port`);

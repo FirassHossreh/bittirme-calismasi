@@ -9,17 +9,21 @@ import { toast } from "react-toastify";
 import CustomInput from "../../components/custom-input";
 import FormTitle from "../../components/form-title";
 // import { loginService } from "../../features/auth/services/login";
-// import { loginSchema } from "../../features/auth/validations/login-validation";
+import { loginSchema } from "../../validations/login-validation";
+import { loginService } from "../../services/auth/login";
+import { useDispatch } from "react-redux";
+import { login } from "../../store/slices/isAuthenticatedSlice";
 import { useEffect } from "react";
+import { removeTokenService } from "../../services/auth/remove-token";
 // import { removeToken } from "../../services/remove-token";
 
 export default function Login() {
-  //   useEffect(() => {
-  //     async function remove() {
-  //       await removeToken();
-  //     }
-  //     remove();
-  //   }, []);
+  useEffect(() => {
+    async function remove() {
+      await removeTokenService();
+    }
+    remove();
+  }, []);
   const navigate = useNavigate();
 
   const { values, isSubmitting, handleChange, handleSubmit, validateForm } =
@@ -28,15 +32,17 @@ export default function Login() {
         email: "",
         password: "",
       },
-      //   validationSchema: loginSchema,
+      validationSchema: loginSchema,
       onSubmit,
     });
+  const dispatch = useDispatch();
   async function onSubmit(values, actions) {
-    // const result = await loginService(values);
-    // actions.resetForm();
-    // if (result.status === 200) {
-    //   navigate("/firass-layout");
-    // }
+    const result = await loginService(values);
+    actions.resetForm();
+    if (result.status === 200) {
+      navigate("/");
+      dispatch(login());
+    }
   }
 
   function handleLoginClick() {

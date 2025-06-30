@@ -2,7 +2,6 @@ const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const parentModel = require("../../models/parent");
-const cryptoJS = require("crypto-js");
 const {
   parentLoginValidation,
 } = require("../../utils/validations/parentLoginValidation");
