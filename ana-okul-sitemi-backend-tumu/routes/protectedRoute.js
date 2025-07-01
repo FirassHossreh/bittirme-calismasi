@@ -8,6 +8,7 @@ const {
 } = require("../controller/child-registration-application-controller");
 
 router.route("/get-parent-data").get(getParentData);
+
 router
   .route("/create-child-registration-application")
   .post(createChildRegisterationApplication);

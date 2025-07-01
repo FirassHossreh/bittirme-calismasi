@@ -51,8 +51,40 @@ const getChildRegisterationApplication = asyncHandler(async (req, res) => {
     });
   res.status(200).json(childRegisterationApplications);
 });
+const getAllChildRegisterationApplication = asyncHandler(async (req, res) => {
+  const childRegisterationApplications =
+    await childRegisterationApplication.find();
+  res.status(200).json(childRegisterationApplications);
+});
+const updateChildRegisterationApplication = asyncHandler(async (req, res) => {
+  const { status } = req.body;
+
+  if (!status) {
+    return res.status(400).json({ message: "Status alanı gereklidir" });
+  }
+  // if (status==="rejected"){
+
+  // }else if(status==="approved"){
+
+  // }
+  const updatedApplication =
+    await childRegisterationApplication.findByIdAndUpdate(
+      req.params.id,
+      { status: status },
+      { new: true }
+    );
+
+  if (!updatedApplication) {
+    return res.status(404).json({ message: "Başvuru bulunamadı" });
+  }
+
+  res.status(200).json(updatedApplication);
+});
 // const getChildRegisterationApplications = asyncHandler(async (req, res) => {});
 module.exports = {
   createChildRegisterationApplication,
   getChildRegisterationApplication,
+  getAllChildRegisterationApplication,
+  updateChildRegisterationApplication,
+  updateChildRegisterationApplication,
 };

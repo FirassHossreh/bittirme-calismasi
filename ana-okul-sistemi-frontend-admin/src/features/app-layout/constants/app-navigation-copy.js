@@ -66,7 +66,7 @@ export const APP_NAVIGATION_COPY = [
     title: "Oyunlar",
   },
   {
-    segment: "/",
+    segment: "/Oyunlar",
     title: "Oyunlar",
     icon: <SportsEsportsIcon />,
     children: [

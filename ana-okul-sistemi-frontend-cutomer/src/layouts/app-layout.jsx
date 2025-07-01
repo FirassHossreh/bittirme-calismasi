@@ -1,6 +1,10 @@
 import { Outlet } from "react-router-dom";
 import Footer from "./../components/footer";
 import Header from "./../components/header";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { isAuthenticatedService } from "../services/auth/is-authenticated";
+import { login, logout } from "../store/slices/isAuthenticatedSlice";
 // import { useEffect } from "react";
 // import { isAuthenticatedService } from "../services/auth/is-authenticated";
 // import { login, logout } from "../store/slices/isAuthenticatedSlice";
@@ -28,19 +32,19 @@ export default function AppLayout() {
   //     </>
   //   );
   // } else {
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   const checkAuth = async () => {
-  //     const response = await isAuthenticatedService();
-  //     if (response?.status === 200) {
-  //       dispatch(login());
-  //     } else {
-  //       dispatch(logout());
-  //     }
-  //   };
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const checkAuth = async () => {
+      const response = await isAuthenticatedService();
+      if (response?.status === 200) {
+        dispatch(login());
+      } else {
+        dispatch(logout());
+      }
+    };
 
-  //   checkAuth();
-  // }, [dispatch]);
+    checkAuth();
+  }, [dispatch]);
   return (
     <>
       <Header />

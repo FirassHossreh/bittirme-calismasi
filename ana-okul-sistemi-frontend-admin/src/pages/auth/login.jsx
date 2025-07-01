@@ -40,7 +40,7 @@ export default function Login() {
     const result = await loginService(values);
     actions.resetForm();
     if (result.status === 200) {
-      navigate("/firass-layout");
+      navigate("/dashboard");
     }
   }
 

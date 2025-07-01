@@ -42,8 +42,8 @@ export const APP_NAVIGATION = [
     icon: <SchoolIcon />,
     children: [
       {
-        segment: "lesson-schedule",
-        title: "Ders Programı",
+        segment: "child-application-cards",
+        title: "Çocuk Kayıt Başvuruları",
         icon: <CalendarMonthIcon />,
       },
       {
@@ -66,7 +66,7 @@ export const APP_NAVIGATION = [
     title: "Oyunlar",
   },
   {
-    segment: "/",
+    segment: "oyunlar",
     title: "Oyunlar",
     icon: <SportsEsportsIcon />,
     children: [

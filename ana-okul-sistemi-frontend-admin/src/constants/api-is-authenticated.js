@@ -1,1 +1,1 @@
-export const API_IS_AUTHENTICATED = "auth/is-authenticated";
+export const API_IS_AUTHENTICATED = "auth/is-authenticated-new";

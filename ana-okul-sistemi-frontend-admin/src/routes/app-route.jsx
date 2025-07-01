@@ -6,7 +6,7 @@ import Home from "../pages/home";
 import AppLayout from "../layouts/app-layout";
 import Teachers from "../pages/teachers";
 import Students from "../pages/students";
-import LessonSchedule from "../pages/lesson-schedule";
+import ChildApplicationCards from "../pages/child-application-cards";
 import FoodList from "../pages/food-list";
 import Events from "../pages/events";
 import ReportsStatistics from "../pages/reports-statistics";
@@ -14,6 +14,8 @@ import Chat from "../pages/chat";
 import FirassLayout from "../layouts/firass-layout";
 import TeacherRegistration from "../pages/auth/teacher-registration";
 import AuthLayout from "../layouts/auth-layout";
+import HangmanGame from "../pages/hangman-game";
+import AnimalSoundsGame from "../pages/animal-sounds-game";
 export default function AppRoutes() {
   return (
     <Routes>
@@ -28,9 +30,16 @@ export default function AppRoutes() {
           <Route path="teachers" element={<Teachers />} />
           <Route path="students" element={<Students />} />
           <Route path="school">
-            <Route path="lesson-schedule" element={<LessonSchedule />} />
+            <Route
+              path="child-application-cards"
+              element={<ChildApplicationCards />}
+            />
             <Route path="food-list" element={<FoodList />} />
             <Route path="events" element={<Events />} />
+          </Route>
+          <Route path="oyunlar">
+            <Route path="first-game" element={<HangmanGame />} />
+            <Route path="second-game" element={<AnimalSoundsGame />} />
           </Route>
           <Route path="chat" element={<Chat />} />
           <Route path="reports-statistics" element={<ReportsStatistics />} />

@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcrypt");
 const employeeModel = require("../../models/employee");
+const CryptoJS = require("crypto-js");
 const {
   employeeLoginValidation,
 } = require("../../utils/validations/employeeLoginValidation");
@@ -34,7 +35,9 @@ const employeeLogin = asyncHandler(async (req, res) => {
       expiresIn: process.env.EXPIRES,
     }
   );
-  res.cookie("token", token, {
+  const secretKey = process.env.CRYPTOJS_SECRET_KEY;
+  const encrypted = CryptoJS.AES.encrypt(token, secretKey).toString();
+  res.cookie("token", encrypted, {
     httpOnly: true,
     maxAge: 1000 * 60 * 60,
     secure: process.env.NODE_ENV === "production",
